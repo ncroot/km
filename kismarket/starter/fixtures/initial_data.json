@@ -1,0 +1,20 @@
+[
+    {"model": "auth.group", "pk": 1, "fields": {"name": "administrators"}},
+    {"model": "auth.group", "pk": 2, "fields": {"name": "moderators"}},
+    {"model": "auth.group", "pk": 3, "fields": {"name": "members"}},
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+                "username": "kis",
+                "password": "sha1$Fp4XkqqJDwqH$d6bd528c2bc181bc2ab2cb5987ee9b9cc461fb4f",
+                "email": "atlantij@gmail.com",
+                "is_active": true,
+                "is_superuser": true,
+                "is_staff": true,
+                "first_name" : "Супер",
+                "last_name" : "Супериор",
+                "groups": [1,2,3]
+            }
+    }
+]
