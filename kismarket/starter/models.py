@@ -11,3 +11,11 @@ class Default(models.Model):
         return self.to_string()
     def to_string(self):
         return self.name
+
+
+class City(Default):
+    class Meta:
+        unique_together = ('name',)
+        ordering = ('name',)
+        verbose_name = u'страна'
+        verbose_name_plural = u'страны'

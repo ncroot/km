@@ -16,5 +16,15 @@
                 "last_name" : "Супериор",
                 "groups": [1,2,3]
             }
-    }
+    },
+    {"model": "starter.city", "pk": 1, "fields": {"name": "Москва"}},
+    {"model": "starter.city", "pk": 2, "fields": {"name": "Санкт-Петербург"}},
+    {"model": "starter.city", "pk": 3, "fields": {"name": "Екатеринбург"}},
+    {"model": "starter.city", "pk": 5, "fields": {"name": "Воронеж"}},
+    {"model": "starter.city", "pk": 6, "fields": {"name": "Пермь"}},
+    {"model": "starter.city", "pk": 7, "fields": {"name": "Набережные Челны"}},
+    {"model": "starter.city", "pk": 8, "fields": {"name": "Краснодар"}},
+    {"model": "starter.city", "pk": 9, "fields": {"name": "Иркутск"}},
+    {"model": "starter.city", "pk": 10, "fields": {"name": "Барнаул"}},
+    {"model": "starter.city", "pk": 11, "fields": {"name": "Альметьевск"}}
 ]

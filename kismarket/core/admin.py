@@ -13,6 +13,9 @@ class Branch_Inline(admin.TabularInline):
     model = Customer.branch.through
     extra = 0
 
+class Developer_Admin(admin.ModelAdmin):
+    list_display = ('name', 'city', 'revenue_2011', 'revenue_2010', 'revenue_incresure_from_2010_to_2012_in_percent', 'staff_2011', 'staff_2010', 'staff_incresure_from_2010_to_2012_in_percent')
+
 class Customer_Admin(admin.ModelAdmin):
     inlines = [Branch_Inline]
 
@@ -23,4 +26,4 @@ admin.site.register(Kis)
 admin.site.register(Kis_Type)
 admin.site.register(Customer, Customer_Admin)
 admin.site.register(Contact)
-admin.site.register(Developer)
+admin.site.register(Developer, Developer_Admin)

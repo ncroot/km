@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ..starter.models import Default
+from ..starter.models import Default, City
 from django.db import models
 
 
@@ -34,6 +34,21 @@ class Branch_Tech_To_Branch(models.Model):
 
 
 class Developer(Default):
+    city = models.ForeignKey(City, blank=True, null=True, related_name='developer_city', verbose_name=u'город')
+    revenue_2011 = models.IntegerField(db_index=True, blank=True, null=True, verbose_name=u'выручка в 2011, тыс. руб.')
+    revenue_2010 = models.IntegerField(db_index=True, blank=True, null=True, verbose_name=u'выручка в 2010, тыс. руб.')
+    staff_2011 = models.IntegerField(db_index=True, blank=True, null=True, verbose_name=u'сотрудников на 31.12.2011')
+    staff_2010 = models.IntegerField(db_index=True, blank=True, null=True, verbose_name=u'сотрудников на 31.12.2010')
+    def revenue_incresure_from_2010_to_2012_in_percent(self):
+        if not self.revenue_2011:
+            return None
+        return '{0:.2f}'.format(float(self.revenue_2011) / float(self.revenue_2010) * 100 - 100)
+    revenue_incresure_from_2010_to_2012_in_percent.short_description  = u'выручка 2010-2011, %'
+    def staff_incresure_from_2010_to_2012_in_percent(self):
+        if not self.staff_2011:
+            return None
+        return '{0:.2f}'.format(float(self.staff_2011) / float(self.staff_2010) * 100 - 100)
+    staff_incresure_from_2010_to_2012_in_percent.short_description  = u'сотрудников 2010-2011, %'
     class Meta:
         unique_together = ('name',)
         ordering = ('name',)
