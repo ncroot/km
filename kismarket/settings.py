@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'south',
     'compressor',
     'pure_pagination',
+    'mptt',
 
     'kismarket.starter',
     'kismarket.core',

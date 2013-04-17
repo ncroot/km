@@ -1,0 +1,17 @@
+python-memcached
+django
+south
+django-debug-toolbar
+django-registration
+django-staticfiles
+django-extra-views
+sorl-thumbnail
+django-cacheops
+django-sphinx
+django-pure-pagination
+python-dateutil
+django-mptt
+wadofstuff-django-serializers
+django-formwizard
+django-extensions
+django-redis-sessions
