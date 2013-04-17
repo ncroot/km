@@ -1,7 +1,8 @@
 .idea
 /build
 public/media
-public/static_root
+public/static/admin
+public/static/django_extensions
 *.pyc
 /.pydevproject
 /.project
@@ -12,4 +13,3 @@ sphinx.conf
 nohup.out
 .tags
 .tags_sorted_by_file
-.sass-cache/
