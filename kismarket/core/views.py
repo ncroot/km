@@ -1,5 +1,24 @@
 # -*- coding: utf-8 -*-
-from django.views.generic import TemplateView
 
-class Home(TemplateView):
-    template_name = '../templates/core/home.html'
+from django.views.generic import TemplateView
+from models import Branch, Developer, Branch_To_Kis
+
+
+class BranchAndDeveloperMatrix(TemplateView):
+    template_name = '../templates/core/BranchAndDeveloperMatrix.html'
+    def get_context_data(self, **kwargs):
+        cd = super(BranchAndDeveloperMatrix, self).get_context_data(**kwargs)
+
+        branches = Branch.objects.all()
+        developers = Developer.objects.all()
+
+        for d in developers:
+            for k in d.kis_set.all():
+                print k.branch.all()
+
+
+        cd.update({
+            'branches': Branch.objects.all(),
+            'developers': Developer.objects.all(),
+        })
+        return cd

@@ -1,9 +1,35 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Atatat!</title>
-<body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Atatat!</title>
+        <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="masthead">
+                <h3 class="muted">Atatin tapakasy</h3>
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <ul class="nav">
+                            <li class="active"><a href="#">отрасль / разработчик</a></li>
+                            <li><a href="#">Еще 1</a></li>
+                            <li><a href="#">Еще 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</body>
+{% block content %}
+{% endblock %}
+
+        </div>
+        <script src="{{ STATIC_URL }}js/jquery.js"></script>
+    </body>
 </html>

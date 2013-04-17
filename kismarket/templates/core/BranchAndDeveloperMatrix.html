@@ -1,0 +1,47 @@
+{% extends '../templates/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Отрасль / Разработчик</th>
+
+
+{% for branch in branches %}
+
+            <th title="{{ branch.name }}">{{ branch.name|truncatechars:"10" }}</th>
+
+{% endfor %}
+
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for developer in developers %}
+        {% cycle '' ' class="info"' as rowcolors silent %}
+
+        <tr{{ rowcolors }}>
+            <th>{{ developer.name }}</th>
+
+        {% for branch in branches %}
+
+               <td title="{{ branch.name }} / {{ developer.name }}">
+            {% for kis in developer.kis_set.all %}
+                {% if branch in kis.branch.all %}
+                +
+                {% endif %}
+            {% endfor %}
+               </td>
+
+        {% endfor %}
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+</table>
+
+
+{% endblock %}

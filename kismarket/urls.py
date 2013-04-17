@@ -6,13 +6,13 @@ from django.contrib.auth.urls import urlpatterns
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
-from kismarket.core.views import Home
+from kismarket.core.views import BranchAndDeveloperMatrix
 
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', Home.as_view(), name='home'),
+    url(r'^$', BranchAndDeveloperMatrix.as_view(), name='home'),
     url(r'^admin/', include(admin.site.urls)),
 )
 
