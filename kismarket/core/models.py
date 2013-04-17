@@ -67,12 +67,33 @@ class Kis_Type(Default):
 
 class Kis(Default):
     owner = models.ForeignKey(Developer, verbose_name=u'владелец')
-    kis_type = models.ManyToManyField(Kis_Type, verbose_name=u'типы ИС')
+    kis_type = models.ManyToManyField(Kis_Type, through='Kis_Type_To_Kis', verbose_name=u'типы ИС')
+    branch = models.ManyToManyField(Branch, through='Branch_To_Kis', verbose_name=u'отрасли')
     class Meta:
         unique_together = ('owner', 'name',)
         ordering = ('owner', 'name',)
         verbose_name = u'ИС'
         verbose_name_plural = u'ИС'
+
+
+class Kis_Type_To_Kis(models.Model):
+    kis = models.ForeignKey(Kis, on_delete=models.CASCADE, related_name='kis_to_kis_type', verbose_name=u'ИС')
+    kis_type = models.ForeignKey(Kis_Type, on_delete=models.CASCADE, related_name='kis_type_to_kis', verbose_name=u'тип ИС')
+    class Meta:
+        unique_together = ('kis', 'kis_type')
+        ordering = ('kis', 'kis_type',)
+        verbose_name = u'тип ИС'
+        verbose_name_plural = u'типы ИС'
+
+
+class Branch_To_Kis(models.Model):
+    kis = models.ForeignKey(Kis, on_delete=models.CASCADE, related_name='kis_to_branch', verbose_name=u'ИС')
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, related_name='branch_to_kis', verbose_name=u'отрасль')
+    class Meta:
+        unique_together = ('kis', 'branch')
+        ordering = ('kis', 'branch',)
+        verbose_name = u'отрасль'
+        verbose_name_plural = u'отрасли'
 
 
 class Customer(Default):

@@ -49,6 +49,7 @@
     {"pk": 11090, "model": "core.branch_tech", "fields": {"name": "E-logistics", "weight": 2, "text": "Электронная логистика"}},
         {"pk": 11090, "model": "core.branch_tech_to_branch", "fields": {"branch": 110, "branch_tech": 11090}},
 
+
     {"pk": 29010, "model": "core.branch_tech", "fields": {"name": "Python", "text": ""}},
         {"pk": 29010, "model": "core.branch_tech_to_branch", "fields": {"branch": 290, "branch_tech": 29010}},
     {"pk": 29020, "model": "core.branch_tech", "fields": {"name": "Perl", "text": ""}},
@@ -63,6 +64,12 @@
         {"pk": 29060, "model": "core.branch_tech_to_branch", "fields": {"branch": 290, "branch_tech": 29060}},
     {"pk": 29070, "model": "core.branch_tech", "fields": {"name": "SaaS", "text": ""}},
         {"pk": 29070, "model": "core.branch_tech_to_branch", "fields": {"branch": 290, "branch_tech": 29070}},
+
+
+
+
+
+
 
 
     {"pk": 10, "model": "core.kis_type", "fields": {
@@ -192,6 +199,13 @@
     }},
 
 
+
+
+
+
+
+
+
     {"pk":   1000, "model": "core.developer", "fields": {"name": "Oracle", "text": ""}},
     {"pk":   1010, "model": "core.developer", "fields": {"name": "SAP", "text": ""}},
     {"pk":   1030, "model": "core.developer", "fields": {"name": "Aspen", "text": "http://www.aspentech.com/products/home"}},
@@ -252,5 +266,103 @@
     {"pk":   1570, "model": "core.developer", "fields": {"name": "ICL-КПО ВС", "city": "12", "revenue_2011": "4633017", "revenue_2010": "3752496", "staff_2011": "1302", "staff_2010": "1127", "text": "http://www.icl.ru/industry-solutions"}},
     {"pk":   1580, "model": "core.developer", "fields": {"name": "Стинс Коман", "city": "1", "revenue_2011": "4501015", "revenue_2010": "3200159", "staff_2011": "819", "staff_2010": "598", "text": "http://www.stinscoman.com/decisions.html"}},
     {"pk":   1590, "model": "core.developer", "fields": {"name": "Си Ти Ай", "city": "1", "revenue_2011": "3290854", "revenue_2010": "1479959", "staff_2011": "129", "text": "http://www.cti.ru/solutions"}},
-    {"pk":   1600, "model": "core.developer", "fields": {"name": "СКБ Контур", "city": "3", "revenue_2011": "3100000", "revenue_2010": "2290000", "staff_2011": "1540", "staff_2010": "1366", "text": "http://kontur.ru/products"}}
+    {"pk":   1600, "model": "core.developer", "fields": {"name": "СКБ Контур", "city": "3", "revenue_2011": "3100000", "revenue_2010": "2290000", "staff_2011": "1540", "staff_2010": "1366", "text": "http://kontur.ru/products"}},
+
+
+
+
+
+    {"pk": 10, "model": "core.kis", "fields": {"name": "Oracle", "owner": "1000", "text": "* Agile | http://www.oracle.com/us/products/applications/agile/\n* ATG | http://www.oracle.com/us/products/applications/commerce/atg/\n* AutoVue | http://www.oracle.com/us/products/applications/autoVue/\n* Documaker | http://www.oracle.com/us/products/applications/documaker/overview/\n* Endeca | http://www.oracle.com/us/products/applications/commerce/endeca/overview/\n* Hyperion | http://www.oracle.com/us/solutions/ent-performance-bi/performance-management/index.html\n* JD Edwards EnterpriseOne | http://www.oracle.com/us/products/applications/jd-edwards-enterpriseone/overview/\n* JD Edwards World | http://www.oracle.com/us/products/applications/jd-edwards-world/overview/\n* Taleo | http://www.oracle.com/us/products/applications/taleo/overview/\n* Knowledge Management | http://www.oracle.com/us/products/applications/knowledge-management/\n* Oracle Crystal Ball | http://www.oracle.com/us/products/applications/crystalball/overview/\n* Oracle CRM On Demand | http://www.oracle.com/us/products/applications/crmondemand/\n* Oracle E-Business Suite | http://www.oracle.com/us/products/applications/ebusiness/overview/\n* Oracle Fusion Applications | http://www.oracle.com/us/products/applications/fusion/overview/\n* Primavera | http://www.oracle.com/us/products/applications/primavera/overview/\n* PeopleSoft | http://www.oracle.com/us/products/applications/peoplesoft-enterprise/overview/\n* RightNow | http://www.oracle.com/us/products/applications/rightnow/overview/\n* Siebel | http://www.oracle.com/us/products/applications/siebel/overview/"}},
+
+        {"pk": 1010, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "10"}},
+        {"pk": 1011, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "20"}},
+        {"pk": 1012, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "30"}},
+        {"pk": 1013, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "40"}},
+        {"pk": 1014, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "250"}},
+        {"pk": 1015, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "100"}},
+        {"pk": 1016, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "160"}},
+        {"pk": 1017, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "80"}},
+        {"pk": 1018, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "170"}},
+        {"pk": 1019, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "240"}},
+        {"pk": 1020, "model": "core.kis_type_to_kis", "fields": {"kis": "10", "kis_type": "70"}},
+
+        {"pk": 1010, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "10"}},
+        {"pk": 1011, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "20"}},
+        {"pk": 1012, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "30"}},
+        {"pk": 1013, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "40"}},
+        {"pk": 1014, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "60"}},
+        {"pk": 1015, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "70"}},
+        {"pk": 1016, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "80"}},
+        {"pk": 1017, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "90"}},
+        {"pk": 1018, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "100"}},
+        {"pk": 1019, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "110"}},
+        {"pk": 1020, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "120"}},
+        {"pk": 1021, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "130"}},
+        {"pk": 1022, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "140"}},
+        {"pk": 1023, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "150"}},
+        {"pk": 1024, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "160"}},
+        {"pk": 1025, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "180"}},
+        {"pk": 1026, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "190"}},
+        {"pk": 1027, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "200"}},
+        {"pk": 1028, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "210"}},
+        {"pk": 1029, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "220"}},
+        {"pk": 1030, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "230"}},
+        {"pk": 1031, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "240"}},
+        {"pk": 1032, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "250"}},
+        {"pk": 1033, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "260"}},
+        {"pk": 1034, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "270"}},
+        {"pk": 1035, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "280"}},
+        {"pk": 1036, "model": "core.branch_to_kis", "fields": {"kis": "10", "branch": "290"}},
+
+
+    {"pk": 20, "model": "core.kis", "fields": {"name": "SAP", "owner": "1010", "text": ""}},
+
+        {"pk": 2010, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "10"}},
+        {"pk": 2011, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "20"}},
+        {"pk": 2012, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "30"}},
+        {"pk": 2013, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "40"}},
+        {"pk": 2014, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "250"}},
+        {"pk": 2015, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "100"}},
+        {"pk": 2016, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "160"}},
+        {"pk": 2017, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "80"}},
+        {"pk": 2018, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "170"}},
+        {"pk": 2019, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "240"}},
+        {"pk": 2021, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "90"}},
+        {"pk": 2022, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "60"}},
+        {"pk": 2023, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "110"}},
+        {"pk": 2024, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "190"}},
+        {"pk": 2025, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "130"}},
+        {"pk": 2026, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "140"}},
+        {"pk": 2027, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "150"}},
+        {"pk": 2028, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "180"}},
+        {"pk": 2029, "model": "core.kis_type_to_kis", "fields": {"kis": "20", "kis_type": "210"}},
+
+        {"pk": 2010, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "10"}},
+        {"pk": 2011, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "20"}},
+        {"pk": 2012, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "30"}},
+        {"pk": 2013, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "40"}},
+        {"pk": 2014, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "60"}},
+        {"pk": 2015, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "70"}},
+        {"pk": 2016, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "80"}},
+        {"pk": 2017, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "90"}},
+        {"pk": 2018, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "100"}},
+        {"pk": 2019, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "110"}},
+        {"pk": 2020, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "120"}},
+        {"pk": 2021, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "130"}},
+        {"pk": 2022, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "140"}},
+        {"pk": 2023, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "150"}},
+        {"pk": 2024, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "160"}},
+        {"pk": 2025, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "180"}},
+        {"pk": 2026, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "190"}},
+        {"pk": 2027, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "200"}},
+        {"pk": 2028, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "210"}},
+        {"pk": 2029, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "220"}},
+        {"pk": 2030, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "230"}},
+        {"pk": 2031, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "240"}},
+        {"pk": 2032, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "250"}},
+        {"pk": 2033, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "260"}},
+        {"pk": 2034, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "270"}},
+        {"pk": 2035, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "280"}},
+        {"pk": 2036, "model": "core.branch_to_kis", "fields": {"kis": "20", "branch": "290"}}
+
 ]
