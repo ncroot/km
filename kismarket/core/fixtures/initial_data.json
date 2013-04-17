@@ -1,5 +1,4 @@
 [
-
     {"pk":   10, "model": "core.branch", "fields": {"name": "Электронная комерция", "text": ""}},
     {"pk":   20, "model": "core.branch", "fields": {"name": "Автомобильная промышленность", "text": ""}},
     {"pk":   30, "model": "core.branch", "fields": {"name": "Аэрокосмическая и оборонная промышленность", "text": ""}},
@@ -30,6 +29,7 @@
     {"pk":  280, "model": "core.branch", "fields": {"name": "Энергетика и ЖКХ", "text": ""}},
     {"pk":  290, "model": "core.branch", "fields": {"name": "ИТ", "text": ""}},
 
+
     {"pk": 11010, "model": "core.branch_tech", "fields": {"name": "RP – Requirements/resource planning", "weight": 1, "text": "Планирование потребностей/ресурсов"}},
         {"pk": 11010, "model": "core.branch_tech_to_branch", "fields": {"branch": 110, "branch_tech": 11010}},
     {"pk": 11020, "model": "core.branch_tech", "fields": {"name": "JIT – Just-in-time", "weight": 1, "text": "Точно в срок"}},
@@ -49,7 +49,6 @@
     {"pk": 11090, "model": "core.branch_tech", "fields": {"name": "E-logistics", "weight": 2, "text": "Электронная логистика"}},
         {"pk": 11090, "model": "core.branch_tech_to_branch", "fields": {"branch": 110, "branch_tech": 11090}},
 
-
     {"pk": 29010, "model": "core.branch_tech", "fields": {"name": "Python", "text": ""}},
         {"pk": 29010, "model": "core.branch_tech_to_branch", "fields": {"branch": 290, "branch_tech": 29010}},
     {"pk": 29020, "model": "core.branch_tech", "fields": {"name": "Perl", "text": ""}},
@@ -66,6 +65,132 @@
         {"pk": 29070, "model": "core.branch_tech_to_branch", "fields": {"branch": 290, "branch_tech": 29070}},
 
 
+    {"pk": 10, "model": "core.kis_type", "fields": {
+        "name": "BI",
+        "text": "Business Intelligence",
+        "criteria": ""
+    }},
+    {"pk": 20, "model": "core.kis_type", "fields": {
+        "name": "BPMS/BPMT",
+        "text": "(англ. Business Process Management System/Tool, управление бизнес-процессами) — концепция процессного управления организацией, рассматривающая бизнес-процессы как особые ресурсы предприятия, непрерывно адаптируемые к постоянным изменениям, и полагающаяся на такие принципы, как понятность и видимость бизнес-процессов в организации за счёт моделирования бизнес-процессов с использованием формальных нотаций, использования программного обеспечения моделирования, симуляции, мониторинга и анализа бизнес-процессов, возможность динамического перестроения моделей бизнес-процессов силами участников и средствами программных систем",
+        "criteria": "* поддержка задач «человек-человек» (англ. human workflow);\n* поддержка организационной структуры и ролевых групп;\n* возможность переназначения заданий, оперативного вмешательства в процесс и обработки исключительных ситуаций;\n* возможность управления логикой процесса с рабочего места пользователя;\n* наличие графических средств разработки моделей бизнес-процесса;\n* способность обслуживать многочисленные, продолжительные и распределённые процессы;\n* возможность информирования в реальном времени по отклонениям показателей процесса;\n* поддержка сервис-ориентированной архитектуры;\n* присутствие шаблонов бизнес-процессов, референтных моделей бизнес-процессов на основании которых могут быть разработаны новые процессы;"
+    }},
+    {"pk": 30, "model": "core.kis_type", "fields": {
+        "name": "CMS",
+        "text": "Content Management System — Системы Управления Содержанием",
+        "criteria": "* Предоставление инструментов для создания содержимого, организация совместной работы над содержимым,\n* Управление содержимым: хранение, контроль версий, соблюдение режима доступа, управление потоком документов и т. п.,\n* Публикация содержимого,\n* Представление информации в виде, удобном для навигации, поиска."
+    }},
+    {"pk": 40, "model": "core.kis_type", "fields": {
+        "name": "CRM",
+        "text": "Система управления взаимоотношениями с клиентами (CRM, CRM-система, сокращение от англ. Customer Relationship Management) — прикладное программное обеспечение для организаций, предназначенное для автоматизации стратегий взаимодействия с заказчиками (клиентами), в частности, для повышения уровня продаж, оптимизации маркетинга и улучшения обслуживания клиентов путём сохранения информации о клиентах и истории взаимоотношений с ними, установления и улучшения бизнес-процедур и последующего анализа результатов.",
+        "criteria": "* Наличие единого хранилища информации, куда собираются сведения о взаимодействии с клиентами.\n* Использование многих каналов взаимодействия: обслуживание на точках продаж, телефонные звонки, электронная почта, мероприятия, встречи, регистрационные формы на веб-сайтах, рекламные ссылки, чаты, социальные сети.\n* Анализ собранной информации о клиентах и подготовка данных для принятия соответствующих решений — например, сегментация клиентов на основе их значимости для компании, потенциальном отклике на те или иные промо-акции, прогнозе потребности в тех или иных продуктах компании."
+    }},
+    {"pk": 50, "model": "core.kis_type", "fields": {
+        "name": "CTRM/ETRM",
+        "text": "Класс информационных систем, служащих для поддержки бизнес-процессов глобальной торговли биржевыми товарами, а также производными от них инструментами. Исторически развился из более узкого класса — ETRM (англ. energy trade and risk management).\n\nБизнес-процессы ETRM/CTRM и системы их поддерживающие отличаются заметной спецификой. Это высокая волатильность цен на эти товары, и связанная с этим высокая рискованность операций. В то же время товарный трейдинг существенно отличается от фондового трейдинга наличием логистической специфики — географических перемещений, складских, транспортных и временных издержек, потерь и излишков при обработке неупакованных грузов, показателей качества (также изменяющихся в течение транспортировок, перевалок и хранения), необходимости планирования транспорта и прочих особенностей.",
+        "criteria": ""
+    }},
+    {"pk": 60, "model": "core.kis_type", "fields": {
+        "name": "EAM",
+        "text": "Cистемы управления основными фондами предприятия",
+        "criteria": ""
+    }},
+    {"pk": 70, "model": "core.kis_type", "fields": {
+        "name": "ECM",
+        "text": "Enterprise Content Management, управление информационными ресурсами",
+        "criteria": ""
+    }},
+    {"pk": 80, "model": "core.kis_type", "fields": {
+        "name": "ERP",
+        "text": "Cистемы планирования ресурсов предприятия",
+        "criteria": ""
+    }},
+    {"pk": 90, "model": "core.kis_type", "fields": {
+        "name": "ESB",
+        "text": "Интеграционные шины данныx",
+        "criteria": ""
+    }},
+    {"pk": 100, "model": "core.kis_type", "fields": {
+        "name": "HRM",
+        "text": "Human Resource Management",
+        "criteria": ""
+    }},
+    {"pk": 110, "model": "core.kis_type", "fields": {
+        "name": "LIMS",
+        "text": "Laboratory Information Management System, система управления лабораторной информацией",
+        "criteria": "* Регистрация и идентификация образцов, поступающих в лабораторию (для ЛИС медицинского назначения — регистрация и идентификация пациентов).\n* Управление заданиями на проведение исследования. Поддержка ручных методик проведения исследований и взаимодействие с лабораторным оборудованием (анализаторами) в части формирования заданий для анализаторов и получения результатов исследований.\n* Обработка и доставка результатов (валидация, авторизация, печать, передача в другие системы и т. д. полученных результатов исследований)."
+    }},
+    {"pk": 120, "model": "core.kis_type", "fields": {
+        "name": "MES",
+        "text": "Cистемы оперативного (цехового) управления производством и ремонтами\n* оно же - АСУТП",
+        "criteria": "* управление изготовлением готовой продукции в основном для непрерывных производств\n* задачи автоматического управления и регулирования"
+    }},
+    {"pk": 130, "model": "core.kis_type", "fields": {
+        "name": "MPS",
+        "text": "Master Planning Scheduling – управление календарным планированием",
+        "criteria": ""
+    }},
+    {"pk": 140, "model": "core.kis_type", "fields": {
+        "name": "MRM",
+        "text": "Cистемы управления маркетинговыми ресурсами",
+        "criteria": ""
+    }},
+    {"pk": 150, "model": "core.kis_type", "fields": {
+        "name": "MRP",
+        "text": "Material Requirement Planning - планирования материальных потребностей",
+        "criteria": ""
+    }},
+    {"pk": 160, "model": "core.kis_type", "fields": {
+        "name": "SCM",
+        "text": "Supply chain management — Система управления цепочками поставок",
+        "criteria": ""
+    }},
+    {"pk": 170, "model": "core.kis_type", "fields": {
+        "name": "SRM",
+        "text": "Supplier Relationship Management — системы управления взаимоотношениями с поставщиками",
+        "criteria": ""
+    }},
+    {"pk": 180, "model": "core.kis_type", "fields": {
+        "name": "WMS",
+        "text": "Warehouse Management System — Системы Управления Складом (СУС)",
+        "criteria": ""
+    }},
+    {"pk": 190, "model": "core.kis_type", "fields": {
+        "name": "АСНИ",
+        "text": "Автоматизированная система научных исследований (Основная цель: моделирование и проведение экспериментов. Решаемые задачи и инструментарий: математическая статистика, планирование эксперимента, методы оптимизации, имитационное моделирование)",
+        "criteria": ""
+    }},
+    {"pk": 200, "model": "core.kis_type", "fields": {
+        "name": "АСТПП",
+        "text": "Автоматизированная система технологической подготовки производства",
+        "criteria": ""
+    }},
+    {"pk": 210, "model": "core.kis_type", "fields": {
+        "name": "Биллинговые системы",
+        "text": "",
+        "criteria": ""
+    }},
+    {"pk": 220, "model": "core.kis_type", "fields": {
+        "name": "Геоинформационные системы",
+        "text": "",
+        "criteria": ""
+    }},
+    {"pk": 230, "model": "core.kis_type", "fields": {
+        "name": "САПР",
+        "text": "Cистема автоматизированного проектирования",
+        "criteria": "* автоматизация процессов расчетов и проектирования\n* изготовление конструкторской документации\n* смет, заказных спецификаций\n* оптимизация проектных решений\n* снижение сроков проектирования"
+    }},
+    {"pk": 240, "model": "core.kis_type", "fields": {
+        "name": "EPM",
+        "text": "? Поддерживают стратегическое планирование и постановку целей, финансовое и оперативное планирование, непрерывное подведение финансовых итогов и составление отчетности, а также управление доходностью в комплексном и полностью интегрированном пакете",
+        "criteria": ""
+    }},
+    {"pk": 250, "model": "core.kis_type", "fields": {
+        "name": "DMS",
+        "text": "Document Management System — СЭД (Системы Электронного Документооборота)\n* Часто в составе CMS",
+        "criteria": ""
+    }},
+
 
     {"pk":   1000, "model": "core.developer", "fields": {"name": "Oracle", "text": ""}},
     {"pk":   1010, "model": "core.developer", "fields": {"name": "SAP", "text": ""}},
@@ -75,29 +200,29 @@
     {"pk":   1060, "model": "core.developer", "fields": {"name": "IBS", "city": "1", "revenue_2011": "26100000", "revenue_2010": "20606530", "staff_2011": "8350", "staff_2010": "7227", "text": "http://www.ibs.ru/content/rus/rubr9/rubr-94.asp"}},
     {"pk":   1070, "model": "core.developer", "fields": {"name": "Ланит", "city": "1", "revenue_2011": "50254866", "revenue_2010": "40944000", "staff_2011": "4997", "staff_2010": "4292", "text": "http://www.lanit.ru/business"}},
     {"pk":   1080, "model": "core.developer", "fields": {"name": "Микротест", "city": "1", "revenue_2011": "11530016", "revenue_2010": "9298400", "staff_2011": "692", "staff_2010": "678", "text": "http://www.microtest.ru/software"}},
-    {"pk":   1090, "model": "core.developer", "fields": {"name": "АйТи", "text": "http://www.it.ru/services/detail.php?ID=385&type=projects"}},
+    {"pk":   1090, "model": "core.developer", "fields": {"name": "АйТи", "city": "1", "revenue_2011": "6180000", "revenue_2010": "4692560", "staff_2011": "1590", "staff_2010": "1550", "text": "http://www.it.ru/services/detail.php?ID=385&type=projects"}},
     {"pk":   1100, "model": "core.developer", "fields": {"name": "Техносерв", "city": "1", "revenue_2011": "39277591", "revenue_2010": "33517571", "staff_2011": "2381", "staff_2010": "2116", "text": "http://www.technoserv.com/services"}},
     {"pk":   1110, "model": "core.developer", "fields": {"name": "Ай-Теко", "city": "1", "revenue_2011": "16900000", "revenue_2010": "12510000", "staff_2011": "1800", "staff_2010": "1300", "text": "http://www.i-teco.ru/products_new.html"}},
-    {"pk":   1120, "model": "core.developer", "fields": {"name": "Jet Infosystems", "text": "http://jet.msk.su/projects"}},
+    {"pk":   1120, "model": "core.developer", "fields": {"name": "Инфосистемы Джет", "city": "1", "revenue_2011": "8818756", "revenue_2010": "8621836", "staff_2011": "1014", "staff_2010": "1020", "text": "http://jet.msk.su/projects"}},
     {"pk":   1130, "model": "core.developer", "fields": {"name": "Сибинтек", "text": "http://sibintek.ru/industry"}},
     {"pk":   1140, "model": "core.developer", "fields": {"name": "GMCS", "text": "http://www.gmcs.ru/what-we-do/industry"}},
     {"pk":   1150, "model": "core.developer", "fields": {"name": "Инфоконт", "text": "http://infocont.ru"}},
     {"pk":   1160, "model": "core.developer", "fields": {"name": "R-Style", "city": "1", "revenue_2011": "27680664", "revenue_2010": "21564321", "staff_2011": "2170", "staff_2010": "1930", "text": "http://www.r-style.ru/work/sistfusion"}},
-    {"pk":   1170, "model": "core.developer", "fields": {"name": "Inline Technologies", "text": "http://www.in-line.ru/branches"}},
+    {"pk":   1170, "model": "core.developer", "fields": {"name": "Inline Technologies", "city": "1", "revenue_2011": "4796713", "revenue_2010": "4370392", "staff_2011": "292", "staff_2010": "238", "text": "http://www.in-line.ru/branches"}},
     {"pk":   1180, "model": "core.developer", "fields": {"name": "Борлас", "text": "http://borlas.ru/clients.html"}},
     {"pk":   1190, "model": "core.developer", "fields": {"name": "TopS BI", "text": "http://www.topsbi.ru/default.asp?trID=5"}},
     {"pk":   1200, "model": "core.developer", "fields": {"name": "Корус Консалтинг", "text": "http://korusconsulting.ru/industries/browse"}},
     {"pk":   1210, "model": "core.developer", "fields": {"name": "Оптима", "city": "1", "revenue_2011": "12041966", "revenue_2010": "11093876", "staff_2011": "2458", "staff_2010": "2416", "text": "http://www.optima.ru/branches"}},
-    {"pk":   1220, "model": "core.developer", "fields": {"name": "AMT Group", "text": "http://www.amt.ru/markets"}},
+    {"pk":   1220, "model": "core.developer", "fields": {"name": "AMT Group", "city": "1", "revenue_2011": "5549000", "revenue_2010": "4805000", "staff_2011": "366", "staff_2010": "345", "text": "http://www.amt.ru/markets"}},
     {"pk":   1230, "model": "core.developer", "fields": {"name": "Columbus IT Partner", "text": "http://www.columbusglobal.com"}},
     {"pk":   1240, "model": "core.developer", "fields": {"name": "BCC", "city": "2", "revenue_2011": "15130074", "revenue_2010": "14812626", "staff_2011": "988", "staff_2010": "876", "text": "http://www.bcc.ru/experience"}},
     {"pk":   1250, "model": "core.developer", "fields": {"name": "IFC", "text": "http://www.ifsworld.com/ru-ru/industries"}},
     {"pk":   1260, "model": "core.developer", "fields": {"name": "NVision", "text": "http://www.nvg.ru/solutions-and-services"}},
     {"pk":   1270, "model": "core.developer", "fields": {"name": "ИКТ-Консалт", "text": "http://www.ikt-group.ru/sectdecisions"}},
-    {"pk":   1280, "model": "core.developer", "fields": {"name": "Inline Group", "text": "http://www.inlinegroup.ru/products/software"}},
+    {"pk":   1280, "model": "core.developer", "fields": {"name": "Инлайн Груп", "text": "http://www.inlinegroup.ru/products/software"}},
     {"pk":   1290, "model": "core.developer", "fields": {"name": "Систематика", "text": "http://www.systematic.ru/resheniya_i_uslugi/sx/ClickWAY/resheniya_i_uslugi.html"}},
     {"pk":   1300, "model": "core.developer", "fields": {"name": "Сервис Плюс", "text": "http://www.servplus.by/solutions"}},
-    {"pk":   1310, "model": "core.developer", "fields": {"name": "ОТР", "text": "http://www.otr.ru/industries/index.php"}},
+    {"pk":   1310, "model": "core.developer", "fields": {"name": "ОТР", "city": "1", "revenue_2011": "3517092", "revenue_2010": "3256567", "staff_2011": "1316", "staff_2010": "1278", "text": "http://www.otr.ru/industries/index.php"}},
     {"pk":   1320, "model": "core.developer", "fields": {"name": "Cognitive Technologies", "city": "1", "revenue_2011": "13823575", "revenue_2010": "10591376", "staff_2011": "762", "staff_2010": "695", "text": "http://www.cognitive.ru/about-us.html"}},
     {"pk":   1330, "model": "core.developer", "fields": {"name": "EMC", "text": "http://russia.emc.com/index.htm"}},
     {"pk":   1340, "model": "core.developer", "fields": {"name": "Epicor", "text": "http://www.epicor.com/russia/Pages/default.aspx"}},
@@ -117,5 +242,15 @@
     {"pk":   1480, "model": "core.developer", "fields": {"name": "ITG (Inline Technologies Group)", "city": "1", "revenue_2011": "17519000", "revenue_2010": "10016000", "staff_2011": "1248", "staff_2010": "1068", "text": "http://www.itgrp.ru"}},
     {"pk":   1490, "model": "core.developer", "fields": {"name": "Астерос", "city": "1", "revenue_2011": "17258352", "revenue_2010": "11179840", "staff_2011": "1570", "staff_2010": "1453", "text": "http://www.asteros.ru/solutions/it-consulting"}},
     {"pk":   1490, "model": "core.developer", "fields": {"name": "Softline", "city": "1", "revenue_2011": "16407901", "revenue_2010": "12748482", "staff_2011": "1900", "staff_2010": "1700", "text": "http://services.softline.ru"}},
-    {"pk":   1490, "model": "core.developer", "fields": {"name": "Verysell", "city": "1", "revenue_2011": "14078350", "revenue_2010": "12817759", "staff_2011": "308", "staff_2010": "390", "text": "http://www.vp.verysell.ru/services/services_03"}}
+    {"pk":   1490, "model": "core.developer", "fields": {"name": "Verysell", "city": "1", "revenue_2011": "14078350", "revenue_2010": "12817759", "staff_2011": "308", "staff_2010": "390", "text": "http://www.vp.verysell.ru/services/services_03"}},
+    {"pk":   1500, "model": "core.developer", "fields": {"name": "Авирса", "city": "1", "revenue_2011": "11211458", "revenue_2010": "5877132", "staff_2011": "1500", "text": "http://www.avirsa.ru/ru/solutions"}},
+    {"pk":   1510, "model": "core.developer", "fields": {"name": "Epam", "city": "1", "revenue_2011": "9835123", "revenue_2010": "6638274", "staff_2011": "8125", "staff_2010": "5600", "text": "http://www.avirsa.ru/ru/solutions"}},
+    {"pk":   1510, "model": "core.developer", "fields": {"name": "Центр финансовых технологий", "city": "1", "revenue_2011": "9074200", "revenue_2010": "5585883", "staff_2011": "1820", "staff_2010": "1384", "text": "http://www.cft.ru/catalogs/Pages/index.aspx"}},
+    {"pk":   1520, "model": "core.developer", "fields": {"name": "Рамэк-ВС", "city": "2", "revenue_2011": "6394285", "revenue_2010": "5313577", "staff_2011": "820", "staff_2010": "679", "text": "http://www.ramec.ru/services/soprovogdenie"}},
+    {"pk":   1530, "model": "core.developer", "fields": {"name": "Татинтек", "city": "11", "revenue_2011": "6317785", "revenue_2010": "4139008", "text": "http://www.ramec.ru/services/soprovogdenie/"}},
+    {"pk":   1560, "model": "core.developer", "fields": {"name": "Форс", "city": "1", "revenue_2011": "4842652", "revenue_2010": "3077448", "staff_2011": "320", "staff_2010": "298", "text": "http://www.fors.ru/portal/page?_pageid=113,242302&_dad=portal&_schema=PORTAL"}},
+    {"pk":   1570, "model": "core.developer", "fields": {"name": "ICL-КПО ВС", "city": "12", "revenue_2011": "4633017", "revenue_2010": "3752496", "staff_2011": "1302", "staff_2010": "1127", "text": "http://www.icl.ru/industry-solutions"}},
+    {"pk":   1580, "model": "core.developer", "fields": {"name": "Стинс Коман", "city": "1", "revenue_2011": "4501015", "revenue_2010": "3200159", "staff_2011": "819", "staff_2010": "598", "text": "http://www.stinscoman.com/decisions.html"}},
+    {"pk":   1590, "model": "core.developer", "fields": {"name": "Си Ти Ай", "city": "1", "revenue_2011": "3290854", "revenue_2010": "1479959", "staff_2011": "129", "text": "http://www.cti.ru/solutions"}},
+    {"pk":   1600, "model": "core.developer", "fields": {"name": "СКБ Контур", "city": "3", "revenue_2011": "3100000", "revenue_2010": "2290000", "staff_2011": "1540", "staff_2010": "1366", "text": "http://kontur.ru/products"}}
 ]

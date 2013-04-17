@@ -40,12 +40,12 @@ class Developer(Default):
     staff_2011 = models.IntegerField(db_index=True, blank=True, null=True, verbose_name=u'сотрудников на 31.12.2011')
     staff_2010 = models.IntegerField(db_index=True, blank=True, null=True, verbose_name=u'сотрудников на 31.12.2010')
     def revenue_incresure_from_2010_to_2012_in_percent(self):
-        if not self.revenue_2011:
+        if not self.revenue_2011 or not self.revenue_2010:
             return None
         return '{0:.2f}'.format(float(self.revenue_2011) / float(self.revenue_2010) * 100 - 100)
     revenue_incresure_from_2010_to_2012_in_percent.short_description  = u'выручка 2010-2011, %'
     def staff_incresure_from_2010_to_2012_in_percent(self):
-        if not self.staff_2011:
+        if not self.staff_2011 or not self.staff_2010:
             return None
         return '{0:.2f}'.format(float(self.staff_2011) / float(self.staff_2010) * 100 - 100)
     staff_incresure_from_2010_to_2012_in_percent.short_description  = u'сотрудников 2010-2011, %'
@@ -57,6 +57,7 @@ class Developer(Default):
 
 
 class Kis_Type(Default):
+    criteria = models.TextField(blank=True, null=True, verbose_name=u'критерии')
     class Meta:
         unique_together = ('name',)
         ordering = ('name',)

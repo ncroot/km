@@ -26,5 +26,6 @@
     {"model": "starter.city", "pk": 8, "fields": {"name": "Краснодар"}},
     {"model": "starter.city", "pk": 9, "fields": {"name": "Иркутск"}},
     {"model": "starter.city", "pk": 10, "fields": {"name": "Барнаул"}},
-    {"model": "starter.city", "pk": 11, "fields": {"name": "Альметьевск"}}
+    {"model": "starter.city", "pk": 11, "fields": {"name": "Альметьевск"}},
+    {"model": "starter.city", "pk": 12, "fields": {"name": "Казань"}}
 ]
