@@ -97,7 +97,11 @@ class Branch_To_Kis(models.Model):
 
 
 class Customer(Default):
-    branch = models.ManyToManyField(Branch, through='Customer_To_Branch', verbose_name=u'отрасли')
+    branch = models.ManyToManyField(Branch, blank=True, null=True, through='Customer_To_Branch', verbose_name=u'отрасли')
+    branch_description = models.CharField(max_length=500, db_index=True, verbose_name=u'описание деятельности')
+    city = models.ForeignKey(City, blank=True, null=True, related_name='customer_city', verbose_name=u'город')
+    company_size = models.CharField(max_length=10, db_index=True, verbose_name=u'размер компании')
+    url = models.CharField(max_length=500, verbose_name=u'URL')
     class Meta:
         unique_together = ('name',)
         ordering = ('name',)
@@ -106,6 +110,7 @@ class Customer(Default):
 
 
 class Customer_To_Branch(models.Model):
+    name_lat = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название лат.')
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_to_branch', verbose_name=u'заказчик')
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE, related_name='branch_to_customer', verbose_name=u'отрасль')
     class Meta:
@@ -115,11 +120,19 @@ class Customer_To_Branch(models.Model):
         verbose_name_plural = u'отрасли'
 
 
-class Contact(Default):
+class Contact(models.Model):
     owner = models.ForeignKey(Developer, verbose_name=u'владелец')
+    customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
+    name = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название')
     weight = models.IntegerField(max_length=3, default=1, db_index=True, verbose_name=u'вес')
+    position_category = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'категория должности')
+    position = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'должность')
     class Meta:
-        unique_together = ('owner', 'name')
-        ordering = ('owner', 'name')
+        unique_together = ('owner', 'customer', 'name')
+        ordering = ('owner', 'customer', 'name')
         verbose_name = u'контакт'
         verbose_name_plural = u'контакты'
+
+
+# class Contact_Cold(models.Model):
+
