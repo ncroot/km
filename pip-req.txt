@@ -1,6 +1,11 @@
 python-memcached
+psycopg2
 django
 south
+message
+utils
+django-compressor
+django-utils
 django-debug-toolbar
 django-registration
 django-staticfiles

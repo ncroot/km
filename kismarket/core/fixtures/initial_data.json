@@ -68,10 +68,6 @@
 
 
 
-
-
-
-
     {"pk": 10, "model": "core.kis_type", "fields": {
         "name": "BI",
         "text": "Business Intelligence",

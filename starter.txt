@@ -1,0 +1,1 @@
+./reset_db.sh; ./manage.py syncdb --migrate --noinput; ./manage.py runserver 8002
