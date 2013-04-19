@@ -97,6 +97,7 @@ class Branch_To_Kis(models.Model):
 
 
 class Customer(Default):
+    name_lat = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название лат.')
     branch = models.ManyToManyField(Branch, blank=True, null=True, through='Customer_To_Branch', verbose_name=u'отрасли')
     branch_description = models.CharField(max_length=500, db_index=True, verbose_name=u'описание деятельности')
     city = models.ForeignKey(City, blank=True, null=True, related_name='customer_city', verbose_name=u'город')
@@ -121,16 +122,37 @@ class Customer_To_Branch(models.Model):
 
 
 class Contact(models.Model):
+class Contact(models.Model):
     owner = models.ForeignKey(Developer, verbose_name=u'владелец')
+    customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
+    name = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название')
     customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
     name = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название')
     weight = models.IntegerField(max_length=3, default=1, db_index=True, verbose_name=u'вес')
     position_category = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'категория должности')
     position = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'должность')
+    position_category = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'категория должности')
+    position = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'должность')
     class Meta:
         unique_together = ('owner', 'customer', 'name')
         ordering = ('owner', 'customer', 'name')
+        unique_together = ('owner', 'customer', 'name')
+        ordering = ('owner', 'customer', 'name')
         verbose_name = u'контакт'
+        verbose_name_plural = u'контакты'
+
+
+class Customer_Connection_Event(models.Model):
+    developer = models.ForeignKey(Developer, verbose_name=u'владелец')
+    customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
+    status = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'статус')
+    comment = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'комментарий')
+    position_category = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'категория должности')
+    position = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'должность')
+    class Meta:
+        verbose_name = u'контактное событие'
+        verbose_name_plural = u'контактные события'
+
         verbose_name_plural = u'контакты'
 
 

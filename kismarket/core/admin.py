@@ -30,6 +30,7 @@ class Branch_To_Custumer_Inline(admin.TabularInline):
     model = Customer.branch.through
     extra = 0
 class Customer_Admin(admin.ModelAdmin):
+    list_display = ('name', 'name_lat', 'city', 'company_size', 'branch_description')
     inlines = [Branch_To_Custumer_Inline]
 
 

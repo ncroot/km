@@ -202,6 +202,7 @@
 
 
 
+    {"pk":      1, "model": "core.developer", "fields": {"name": "CUSTIS", "text": ""}},
     {"pk":   1000, "model": "core.developer", "fields": {"name": "Oracle", "text": ""}},
     {"pk":   1010, "model": "core.developer", "fields": {"name": "SAP", "text": ""}},
     {"pk":   1030, "model": "core.developer", "fields": {"name": "Aspen", "text": "http://www.aspentech.com/products/home"}},
