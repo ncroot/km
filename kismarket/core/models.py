@@ -122,7 +122,6 @@ class Customer_To_Branch(models.Model):
 
 
 class Contact(models.Model):
-class Contact(models.Model):
     owner = models.ForeignKey(Developer, verbose_name=u'владелец')
     customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
     name = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название')
@@ -154,7 +153,3 @@ class Customer_Connection_Event(models.Model):
         verbose_name_plural = u'контактные события'
 
         verbose_name_plural = u'контакты'
-
-
-# class Contact_Cold(models.Model):
-

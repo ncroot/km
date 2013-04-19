@@ -35,29 +35,43 @@ class Command(BaseCommand):
         connection_create_cnt = 0
         city_create_cnt = 0
 
+        column = {
+            "status": 0,
+            "comment": 1,
+            "customer_name_lat": 2,
+            "customer_name": 3,
+            "customer_url": 4,
+            "position_category": 5,
+            "position": 6,
+            "customer_branch_description": 7,
+            "customer_company_size": 8,
+            "city_name": 10,
+        }
+
         for s in book.sheets():
             for row in range(s.nrows):
                 connection = Customer_Connection_Event()
-                connection.status = s.cell(row, 0).value
-                connection.comment = s.cell(row, 1).value
-                connection.position_category = s.cell(row, 5).value
-                connection.position = s.cell(row, 6).value
+                connection.status = s.cell(row, column['status']).value
+                connection.comment = s.cell(row, column['comment']).value
+                connection.position_category = s.cell(row, column['position_category']).value
+                connection.position = s.cell(row, column['position']).value
                 connection.developer = custis
                 try:
-                    customer = Customer.objects.get(name = s.cell(row, 3).value)
+                    customer = Customer.objects.get(name = s.cell(row, column['customer_name']).value)
                 except ObjectDoesNotExist:
                     customer = Customer()
-                    customer.name_lat = s.cell(row, 2).value
-                    customer.name = s.cell(row, 3).value
-                    customer.url = s.cell(row, 4).value
-                    customer.branch_description = s.cell(row, 7).value
-                    customer.company_size = s.cell(row, 8).value
-                    try:
-                        city = City.objects.get(name = s.cell(row, 10).value)
-                    except ObjectDoesNotExist:
-                        city = City(name = s.cell(row, 10).value).save()
-                        city_create_cnt += 1
-                    customer.city = city
+                    customer.name_lat = s.cell(row, column['customer_name_lat']).value
+                    customer.name = s.cell(row, column['customer_name']).value
+                    customer.url = s.cell(row, column['customer_url']).value
+                    customer.branch_description = s.cell(row, column['customer_branch_description']).value
+                    customer.company_size = s.cell(row, column['customer_company_size']).value
+                    if s.cell(row, column['city_name']).value:
+                        try:
+                            city = City.objects.get(name = s.cell(row, column['city_name']).value)
+                        except ObjectDoesNotExist:
+                            city = City(name = s.cell(row, column['city_name']).value).save()
+                            city_create_cnt += 1
+                        customer.city = city
                     customer.save()
                     customer_create_cnt += 1
                 connection.customer = customer
