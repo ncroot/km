@@ -151,5 +151,7 @@ class Customer_Connection_Event(models.Model):
     class Meta:
         verbose_name = u'контактное событие'
         verbose_name_plural = u'контактные события'
-
-        verbose_name_plural = u'контакты'
+    def __unicode__(self):
+        return self.to_string()
+    def to_string(self):
+        return u"%s" % (self.customer)
