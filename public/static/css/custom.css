@@ -1,0 +1,243 @@
+HTML, BODY {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+BODY {
+	font-size: 12px;
+	line-height: 1.2;
+	position: relative;
+}
+
+BODY > .header {
+	height: 40px;
+	padding: 0 20px;
+	background-color: #333;
+	background-image: linear-gradient(to bottom, transparent 33%, rgba(0, 0, 0, 0.5) 100%);
+}
+BODY > .header H1 {
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 40px;
+	color: #fff;
+	margin: 0;
+}
+
+button::-moz-focus-inner {
+	border: 0 none;
+}
+:focus {
+	outline: 0 none !important;
+}
+
+.table > TBODY > TR.active TH,
+.table > TBODY > TR.active TD {
+	background-color: #f0fff6;
+}
+.table-hover > TBODY > TR:hover > TD,
+.table-hover > TBODY > TR:hover > TH {
+	background-color: #f0f6ff;
+}
+.table-hover > TBODY > TR.active:hover > TD,
+.table-hover > TBODY > TR.active:hover > TH {
+	background-color: #f0fff6;
+}
+.table-condensed TH,
+.table-condensed TD {
+	padding: 4px 6px;
+}
+.table-border {
+	border: 1px solid #ddd;
+	border-collapse: separate;
+	border-left: 0;
+}
+.table-border TH,
+.table-border TD {
+	border-left: 1px solid #ddd;
+}
+
+.th-wrap {
+	height: 1px;
+	overflow: hidden;
+}
+.th-text {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 1.2;
+}
+
+.form-horizontal .control-label {
+	width: 100px;
+}
+.form-horizontal .control-group {
+    margin-bottom: 10px;
+}
+.form-horizontal .controls {
+    margin-left: 110px;
+}
+
+BODY > .body {
+	position: absolute;
+	left: 10px;
+	top: 50px;
+	right: 12px;
+	bottom: 10px;
+}
+.body > .bar {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 18%;
+	height: 100%;
+}
+.body > .main {
+	position: absolute;
+	left: 18%;
+	top: 0;
+	right: 0;
+	height: 100%;
+}
+.main > .leftpanel,
+.main > .rightpanel {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	background-color: #f3f4f6;
+	border-radius: 4px;
+}
+.main > .leftpanel {
+	left: 0;
+	width: 50%;
+}
+.main > .rightpanel {
+	left: 50%;
+	width: 50%;
+	margin-left: 2px;
+}
+
+.filter {
+	padding: 10px;
+}
+.filter > INPUT[type='text'] {
+	margin-right: 5px;
+}
+INPUT[type='text'].bsheight {
+	padding: 3px 6px 1px;
+	margin-bottom: 0;
+	font-size: 11.9px;
+}
+SELECT.bsheight {
+	height: 26px;
+	margin-bottom: 0;
+	font-size: 11.9px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+LABEL, TEXTAREA {
+	font-size: 12px;
+	line-height: 1.2;
+}
+.btn-small ~ .dropdown-menu > LI > A {
+	font-size: 12px;
+	line-height: 1.4;
+}
+.leftpanel > .fakeheader {
+	position: relative;
+	padding: 0 10px;
+	z-index: 1;
+}
+.fakeheader .table {
+	width: auto;
+	background-color: #fff;
+	border-radius: 4px 4px 0 0;
+}
+
+.fakeheader .table-condensed TH {
+	padding: 9px 6px 7px;
+}
+.fakeheader TH:first-child {
+	border-radius: 4px 0 0 0;
+}
+.leftpanel > .tablewrapper,
+.rightpanel > .listholder {
+	position: absolute;
+	left: 10px;
+	top: 77px;
+	right: 10px;
+	bottom: 10px;
+	overflow: auto;
+}
+.leftpanel .table {
+	margin: 0;
+}
+.leftpanel .table TH,
+.leftpanel .table TD {
+	line-height: 1.2;
+}
+.tablewrapper > .table {
+	position: relative;
+	top: -2px;
+}
+.tablewrapper > .table > THEAD TH {
+	font-size: 0;
+	line-height: 0;
+	padding: 0 6px;
+}
+
+.rightpanel > H2 {
+	margin: 0 10px 1px 20px;
+	font-size: 20px;
+	line-height: 29px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.rightpanel > FORM {
+	margin: 0 10px;
+	padding: 28px 0 12px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	display: none;
+}
+.rightpanel > FORM TEXTAREA {
+	height: 72px;
+	resize: none;
+}
+.rightpanel > .listholder {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin: 0;
+}
+.listholder LI {
+	border-top: 1px solid #ddd;
+	padding: 10px 10px 7px;
+}
+.listholder LI:first-child {
+	border: 0 none;
+}
+.listholder LI:nth-child(2n+1) {
+	background-color: #f9fafb;
+}
+.listholder DL {
+	margin: 0;
+}
+.listholder DD {
+	line-height: 1.3;
+	margin-bottom: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
