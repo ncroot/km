@@ -7,6 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 
 
 PROJECT_DIR = os.getcwd()
+PROJECT_NAME = 'kismarket'
 
 ADMINS = (
     ('ahaha', 'atlantij@gmail.com'),
@@ -19,7 +20,7 @@ DATABASE_ENGINE = 'postgresql_psycopg2'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.%s' % DATABASE_ENGINE,
-        'NAME': 'kismarket',
+        'NAME': PROJECT_NAME,
         'USER': 'postgres',
         'PASSWORD': '123456',
         'HOST': 'localhost',
@@ -116,11 +117,11 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = '%s.urls' % PROJECT_DIR.replace('\\', '/').split('/').pop()
 
 # Python dotted path to the WSGI application used by Django's runserver.
-# WSGI_APPLICATION = 'kismarket.wsgi.application'
+# WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_NAME
 WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_DIR.replace('\\', '/').split('/').pop()
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'kismarket', 'templates'),
+    os.path.join(PROJECT_DIR, PROJECT_NAME, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -142,8 +143,8 @@ INSTALLED_APPS = (
     'pure_pagination',
     'mptt',
 
-    'kismarket.starter',
-    'kismarket.core',
+    '%s.starter' % PROJECT_NAME,
+    '%s.core' % PROJECT_NAME,
 )
 
 # A sample logging configuration. The only tangible logging

@@ -2,15 +2,12 @@
 
 import os
 from optparse import make_option
-from django.core.management.base import BaseCommand
-from django.utils.encoding import smart_str
-from setuptools.command.develop import develop
-from kismarket.core.models import Customer_Connection_Event, Customer, Developer
-from kismarket.settings import PROJECT_DIR
 from xlrd import open_workbook, XLRDError
+from django.core.management.base import BaseCommand
 from django.core.exceptions import ObjectDoesNotExist
-from kismarket.starter.models import City
-
+from ....core.models import Customer_Connection_Event, Customer, Developer
+from ....settings import PROJECT_DIR
+from ....starter.models import City
 
 class Command(BaseCommand):
     def __init__(self):
