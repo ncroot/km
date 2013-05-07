@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 
 
 PROJECT_DIR = os.getcwd()
-PROJECT_NAME = 'kismarket'
+PROJECT_NAME = PROJECT_DIR.replace('\\', '/').split('/').pop()
 
 ADMINS = (
     ('ahaha', 'atlantij@gmail.com'),
@@ -114,11 +114,11 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = '%s.urls' % PROJECT_DIR.replace('\\', '/').split('/').pop()
+ROOT_URLCONF = '%s.urls' % PROJECT_NAME
 
 # Python dotted path to the WSGI application used by Django's runserver.
 # WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_NAME
-WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_DIR.replace('\\', '/').split('/').pop()
+WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_NAME
 
 TEMPLATE_DIRS = (
     # os.path.join(PROJECT_DIR, PROJECT_NAME, 'templates'),

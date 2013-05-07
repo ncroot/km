@@ -12,3 +12,9 @@ class BranchAndDeveloperMatrixView(TemplateView):
             'developers': Developer.objects.all,
         })
         return cd
+
+class CustomerListView(TemplateView):
+    template_name = 'CustomerListView.html'
+    def get_context_data(self, **kwargs):
+        cd = super(CustomerListView, self).get_context_data(**kwargs)
+        return cd

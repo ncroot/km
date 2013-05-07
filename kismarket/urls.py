@@ -6,15 +6,15 @@ from django.contrib.auth.urls import urlpatterns
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
-from .core.views import BranchAndDeveloperMatrixView
 from .starter.views import HomePageView
+from settings import PROJECT_NAME
 
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', HomePageView.as_view(), name='home'),
-    url(r'^branch-n-developer$', BranchAndDeveloperMatrixView.as_view(), name='branch-n-developer'),
+    url(r'^$', include('%s.starter.urls' % PROJECT_NAME)),
+    url(r'^core/', include('%s.core.urls' % PROJECT_NAME)),
     url(r'^admin/', include(admin.site.urls)),
 )
 
