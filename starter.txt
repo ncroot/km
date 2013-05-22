@@ -1,2 +1,0 @@
-./reset_db.sh; ./manage.py syncdb --migrate --noinput; ./manage.py runserver 8002
-./manage.py customer_connetcion_event_fill
