@@ -6,7 +6,6 @@ from django.contrib.auth.urls import urlpatterns
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
-from .starter.views import HomePageView
 from settings import PROJECT_NAME
 
 

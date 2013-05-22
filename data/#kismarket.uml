@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DjangoModelDependency</ID>
+  <OriginalElement>#kismarket</OriginalElement>
+  <nodes>
+    <node x="233.0" y="482.0">kismarket.core.models.Branch_To_Kis</node>
+    <node x="133.0" y="621.0">kismarket.core.models.Kis_Type_To_Kis</node>
+    <node x="670.0" y="637.0">kismarket.core.models.Branch_Tech</node>
+    <node x="463.0" y="760.0">kismarket.core.models.Branch_Tech_To_Branch</node>
+    <node x="622.0" y="319.0">kismarket.core.models.Customer</node>
+    <node x="659.0" y="127.0">kismarket.core.models.Customer_Connection_Event</node>
+    <node x="381.0" y="552.0">kismarket.core.models.Kis</node>
+    <node x="472.0" y="196.0">kismarket.core.models.Customer_To_Branch</node>
+    <node x="300.0" y="691.0">kismarket.core.models.Kis_Type</node>
+    <node x="492.0" y="483.0">kismarket.core.models.Branch</node>
+    <node x="405.0" y="332.0">kismarket.starter.models.City</node>
+    <node x="518.0" y="401.0">kismarket.core.models.Developer</node>
+    <node x="715.0" y="485.0">kismarket.core.models.Contact</node>
+  </nodes>
+  <notes>
+    <note x="478.0" y="10.0">
+      <node>kismarket.core.models.Customer_To_Branch</node>
+      <value>Связь Заказчика и Отрасли</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="117.0" y="387.0">
+      <node>kismarket.core.models.Branch_To_Kis</node>
+      <value>Связь ИС и Отрасли</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="292.0" y="859.0">
+      <node>kismarket.core.models.Kis_Type</node>
+      <value>Тип ИС</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="843.0" y="751.0">
+      <node>kismarket.core.models.Branch_Tech</node>
+      <value>Отраслевая Технология</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="0.0" y="690.0">
+      <node>kismarket.core.models.Kis_Type_To_Kis</node>
+      <value>Связь ИС и Типа Ис</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="613.0" y="570.0">
+      <node>kismarket.core.models.Branch</node>
+      <value>Отрасль</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="311.0" y="337.0">
+      <node>kismarket.starter.models.City</node>
+      <value>Город</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="517.0" y="966.0">
+      <node>kismarket.core.models.Branch_Tech_To_Branch</node>
+      <value>Связь Отрасли и Отраслевой Технологии</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="854.0" y="329.0">
+      <node>kismarket.core.models.Customer</node>
+      <value>Компания Заказчик</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="384.0" y="415.0">
+      <node>kismarket.core.models.Kis</node>
+      <value>ИС</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="856.0" y="0.0">
+      <node>kismarket.core.models.Customer_Connection_Event</node>
+      <value>Контактное Событие</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="368.0" y="265.0">
+      <node>kismarket.core.models.Developer</node>
+      <value>Компания Разработчик</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+    <note x="939.0" y="500.0">
+      <node>kismarket.core.models.Contact</node>
+      <value>Контактное лицо</value>
+      <edge>
+        <point x="0.0" y="0.0" />
+        <point x="0.0" y="0.0" />
+      </edge>
+    </note>
+  </notes>
+  <edges>
+    <edge source="kismarket.core.models.Customer_To_Branch" target="kismarket.core.models.Customer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Branch_Tech_To_Branch" target="kismarket.core.models.Branch">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Branch_Tech_To_Branch" target="kismarket.core.models.Branch_Tech">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Developer" target="kismarket.starter.models.City">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Kis" target="kismarket.core.models.Kis_Type">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Branch_To_Kis" target="kismarket.core.models.Branch">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Branch_Tech" target="kismarket.core.models.Branch">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Customer_Connection_Event" target="kismarket.core.models.Customer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Customer" target="kismarket.starter.models.City">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Kis_Type_To_Kis" target="kismarket.core.models.Kis_Type">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Kis_Type_To_Kis" target="kismarket.core.models.Kis">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Kis" target="kismarket.core.models.Branch">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Contact" target="kismarket.core.models.Customer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Customer_To_Branch" target="kismarket.core.models.Branch">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Customer" target="kismarket.core.models.Branch">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Branch_To_Kis" target="kismarket.core.models.Kis">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Customer_Connection_Event" target="kismarket.core.models.Developer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Kis" target="kismarket.core.models.Developer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="kismarket.core.models.Contact" target="kismarket.core.models.Developer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="555.0" y="529.0" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+

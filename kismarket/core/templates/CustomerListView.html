@@ -2,56 +2,6 @@
 
 {% block content %}
 
-<div class="tableholder">
-	<table class="table table-bordered table-condensed table-hover" id="bigtable">
-		<thead>
-			<tr>
-				<th>Разработчик / Отрасль</th>
-	{% spaceless %}
-	{% for branch in branches %}
-				<th title="{{ branch.name }}">{{ branch.name|truncatechars:"10" }}</th>
-	{% endfor %}
-			</tr>
-		</thead>
-		<tbody>
 
-		{% for developer in developers %}
-			{% cycle '' ' class="info"' as rowcolors silent %}
-
-			<tr{{ rowcolors }}>
-				<th>{{ developer.name }}</th>
-
-			{% for branch in branches %}
-				
-				<td title="{{ branch.name }} / {{ developer.name }}">
-				{% for kis in developer.kis_set.all %}
-					{% if branch in kis.branch.all %}
-					+
-					{% endif %}
-				{% endfor %}
-				</td>
-				
-			{% endfor %}
-
-			</tr>
-
-		{% endfor %}
-		{% endspaceless %}
-		</tbody>
-	</table>
-</div>
-
-<script type="text/javascript">
-//<![CDATA[
-$(function(){
-	$('#bigtable tbody td').tooltip({
-		animation: false,
-		container: 'body'
-	});
-	
-	//console.log();
-});
-//]]>	
-</script>
 
 {% endblock %}

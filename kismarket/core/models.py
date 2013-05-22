@@ -108,6 +108,10 @@ class Customer(Default):
         ordering = ('name',)
         verbose_name = u'заказчик'
         verbose_name_plural = u'заказчики'
+    def customer_connection_event_count(self):
+        return self.customer_connection_event_set.count()
+    def serialize_extra(self):
+        return {'extras': ('customer_connection_event_count',)}
 
 
 class Customer_To_Branch(models.Model):

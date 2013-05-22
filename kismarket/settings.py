@@ -190,6 +190,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 USE_BCRYPT = False
 
+
+SERIALIZATION_MODULES = {
+    # 'json': 'wadofstuff.django.serializers.json'
+}
+
+
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.SHA1PasswordHasher',
     'django.contrib.auth.hashers.MD5PasswordHasher',
