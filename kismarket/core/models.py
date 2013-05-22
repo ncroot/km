@@ -125,15 +125,12 @@ class Customer_To_Branch(models.Model):
         verbose_name_plural = u'отрасли'
 
 
-class Contact(models.Model):
-    owner = models.ForeignKey(Developer, verbose_name=u'владелец')
+
+class Contact(Default):
+    owner = models.ForeignKey(Developer, verbose_name=u'разработчик')
     customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
-    name = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название')
-    customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
-    name = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название')
+    birthdate = models.DateField(blank=True, null=True, db_index=True, verbose_name=u'дата рождения')
     weight = models.IntegerField(max_length=3, default=1, db_index=True, verbose_name=u'вес')
-    position_category = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'категория должности')
-    position = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'должность')
     position_category = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'категория должности')
     position = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'должность')
     class Meta:
@@ -159,3 +156,34 @@ class Customer_Connection_Event(models.Model):
         return self.to_string()
     def to_string(self):
         return u"%s" % (self.customer)
+
+
+
+
+class Kis_Sell(Default):
+    STATUS_CHOICES = [
+        ('start', 'Начало'),
+        ('routine', 'Текучка'),
+        ('rejected', 'Отклонен'),
+        ('sold', 'Продано'),
+    ]
+    status = models.CharField(max_length=500, blank=True, null=True, db_index=True, choices=STATUS_CHOICES, verbose_name=u'статус')
+    when = models.DateField(auto_now_add=True, db_index=True, verbose_name=u'когда')
+    customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
+    kis = models.ForeignKey(Kis, verbose_name=u'ИС')
+    contact = models.ManyToManyField(Contact, through='Contact_To_Kis_Sell', verbose_name=u'контакты')
+    class Meta:
+        unique_together = ('customer', 'kis')
+        ordering = ('kis', 'customer')
+        verbose_name = u'проект-проджа'
+        verbose_name_plural = u'проекты-продажи'
+
+
+class Contact_To_Kis_Sell(models.Model):
+    kis_sell = models.ForeignKey(Kis_Sell, on_delete=models.CASCADE, related_name='kis_sell_to_contact', verbose_name=u'проект-продажа')
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name='contact_to_kis_sell', verbose_name=u'контакт')
+    class Meta:
+        unique_together = ('kis_sell', 'contact')
+        ordering = ('kis_sell', 'contact')
+        verbose_name = u'продажа через контакт'
+        verbose_name_plural = u'продажи через контакты'

@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Branch, Branch_Tech, Kis, Kis_Type, Contact, Developer, Customer, Customer_Connection_Event
+from .models import Branch, Branch_Tech, Kis, Kis_Type, Kis_Sell, Contact, Developer, Customer, Customer_Connection_Event
 
 
 class Branch_Technology_To_Branch_Inline(admin.TabularInline):
@@ -45,10 +45,18 @@ class Kis_Admin(admin.ModelAdmin):
     inlines = [Branch_To_Kis_Inline, Kis_Type_To_Kis_Inline]
 
 
+class Kis_Sell_To_Contact_Inline(admin.TabularInline):
+    model = Kis_Sell.contact.through
+    extra = 0
+class Kis_Sell_Admin(admin.ModelAdmin):
+    inlines = [Kis_Sell_To_Contact_Inline]
+
+
 admin.site.register(Branch, Branch_Admin)
 admin.site.register(Branch_Tech)
 admin.site.register(Kis, Kis_Admin)
 admin.site.register(Kis_Type, Kis_Type_Admin)
+admin.site.register(Kis_Sell, Kis_Sell_Admin)
 admin.site.register(Customer, Customer_Admin)
 admin.site.register(Contact)
 admin.site.register(Developer, Developer_Admin)
