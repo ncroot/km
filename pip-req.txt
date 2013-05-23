@@ -21,3 +21,4 @@ wadofstuff-django-serializers
 django-formwizard
 django-extensions
 django-redis-sessions
+git+https://github.com/Soaa-/django-nested-inlines.git

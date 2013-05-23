@@ -134,6 +134,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'nested_inlines',
+
     'django.contrib.admin',
     'django.contrib.formtools',
     'django_extensions',
