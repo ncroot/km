@@ -25,6 +25,9 @@ class Kis_Type_Admin(admin.ModelAdmin):
 
 
 
+class Customer_To_Customer_Inline(admin.TabularInline):
+    model = Customer.relationship.through
+    extra = 0
 class Custumer_To_Branch_Inline(admin.TabularInline):
     model = Customer.branch.through
     extra = 0
@@ -33,7 +36,7 @@ class Custumer_Department_Inline(admin.TabularInline):
     extra = 0
 class Customer_Admin(admin.ModelAdmin):
     list_display = ('name', 'name_lat', 'city', 'company_size', 'branch_description')
-    inlines = [Custumer_Department_Inline, Custumer_To_Branch_Inline]
+    inlines = [Customer_To_Customer_Inline, Custumer_Department_Inline, Custumer_To_Branch_Inline]
 
 
 
@@ -78,6 +81,7 @@ class Developer_Kis_Inline(NestedTabularInline):
 class Developer_Admin(NestedModelAdmin):
     inlines = [Developer_Customer_Relation_Status_Inline, Developer_Kis_Inline]
     list_display = ('name', 'city', 'revenue_2011', 'revenue_2010', 'revenue_incresure_from_2010_to_2012_in_percent', 'staff_2011', 'staff_2010', 'staff_incresure_from_2010_to_2012_in_percent')
+
 
 
 admin.site.register(Branch, Branch_Admin)

@@ -51,6 +51,7 @@ class Customer(Organization):
     branch = models.ManyToManyField(Branch, blank=True, null=True, through='Customer_To_Branch', verbose_name=u'отрасли')
     branch_description = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'описание деятельности')
     url = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'URL')
+    relationship = models.ManyToManyField('self', blank=True, null=True, through='Customer_To_Customer', symmetrical=False, verbose_name=u'отношения')
     class Meta:
         unique_together = ('name',)
         ordering = ('name',)
@@ -62,6 +63,22 @@ class Customer(Organization):
         return {'extras': ('customer_connection_event_count',)}
 
 
+class Customer_To_Customer(models.Model):
+    WHAT_CHOICES = [
+        ('1', 'Материнская компания'),
+        ('2', 'Дочерняя'),
+        ('3', 'Аффилированная'),
+    ]
+    who = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_to_customer_who', verbose_name=u'кто')
+    whom = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_to_customer_whom', verbose_name=u'с кем')
+    what = models.IntegerField(max_length=1, blank=True, null=True, db_index=True, choices=WHAT_CHOICES, verbose_name=u'тип')
+    when = models.DateTimeField(auto_now_add=True, blank=True, db_index=True, verbose_name=u'когда появилась запись')
+    class Meta:
+        unique_together = ('who', 'whom')
+        ordering = ('who', 'whom')
+        verbose_name = u'отношение'
+        verbose_name_plural = u'отношения'
+
 
 class Customer_Department(Default):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name=u'заказчик')
@@ -70,6 +87,7 @@ class Customer_Department(Default):
         verbose_name_plural = u'поразделения заказчика'
     def to_string(self):
         return '%s - %s' % (self.customer, self.name)
+
 
 
 class Customer_To_Branch(models.Model):
@@ -114,7 +132,7 @@ class Developer_Customer_Relation_Status(models.Model):
     ]
     developer = models.ForeignKey(Developer, verbose_name=u'исполнитель')
     customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
-    status = models.CharField(max_length=500, blank=True, null=True, db_index=True, choices=STATUS_CHOICES, verbose_name=u'статус')
+    status = models.IntegerField(max_length=1, blank=True, null=True, db_index=True, choices=STATUS_CHOICES, verbose_name=u'статус')
     when = models.DateTimeField(auto_now_add=True, blank=True, db_index=True, verbose_name=u'когда появилась запись')
     next_contact_event_date = models.DateTimeField(blank=True, null=True, db_index=True, verbose_name=u'дата следующего контакта')
     class Meta:
