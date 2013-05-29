@@ -171,7 +171,7 @@ LABEL, TEXTAREA {
 }
 .leftpanel .table TH,
 .leftpanel .table TD {
-	line-height: 1.2;
+	line-height: 1.25;
 }
 .tablewrapper > .table {
 	position: relative;
