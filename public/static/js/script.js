@@ -48,13 +48,17 @@ $(function() {
 		e.preventDefault();
 		closeForm();
 	});
+	
+	$('#companylist TBODY').on('click', 'A', function(e) {
+		e.stopPropagation();
+	});
 
-	$('.tablewrapper TBODY > TR').click(function() {
+	$('#companylist TBODY').on('click', '> TR', function(e) {
 		var el = $(this),
-			fadespeed = 400;
+			fadespeed = 200;
 
 		if (el.is('.active')) return false;
-
+		
 		el.siblings().removeClass('active').end().addClass('active');
 
 		setTimeout(function() {
@@ -64,7 +68,7 @@ $(function() {
 		closeForm();
 
 		$('.rightpanel > H2').animate({
-			opacity : 0.1
+			opacity : 0.3
 		}, fadespeed / 2, function() {
 			$(this).animate({
 				opacity : 1
@@ -72,11 +76,97 @@ $(function() {
 		});
 
 		$('.rightpanel > .listholder LI').animate({
-			opacity : 0.1
+			opacity : 0.3
 		}, fadespeed / 2, function() {
 			$(this).animate({
 				opacity : 1
 			}, fadespeed);
 		});
 	});
+	
+	$.hiddenElems = $('.leftpanel > .fakeheader, .leftpanel > .tablewrapper, .rightpanel > H2, .rightpanel > .listholder').css({ opacity : 0 });
+	
+	$.getCompanyList(drawList);
 });
+
+$.companyList = null;
+$.hiddenElems = null;
+
+$.getCompanyList = function(callback) {
+	$.ajax({
+		url: '/core/customer-list-json',
+		dataType: 'json',
+		cache: false,
+		success: function(data) {
+			$.companyList = data.object_list;
+			if ($.type(callback) == 'function') callback();
+		}
+	});
+};
+
+function drawList() {
+	if ($.companyList) {
+		var tbody  = $('#companylist > TBODY');
+		
+		tbody.empty();
+		
+		for (k in $.companyList) {
+			var c = $.companyList[k].fields,
+				c_city,
+				c_url = c.url ? '<a href="http://'+c.url+'" title="'+c.url+'" target="_blank">url</a>' : '—';
+			
+			switch(c.city) {
+				case 1:
+					c_city = 'Москва';
+					break;
+				case null:
+					c_city = '—';
+					break;
+				default:
+					c_city = c.city;
+					break;
+			}
+			
+			tbody.append('<tr><td title="'+c.branch_description+'">'+c.name+'</td><td>'+c_city+'</td><td>'+c.company_size+'</td><td>'+c_url+'</td></tr>');
+			
+			console.log(c);
+		}
+		
+		tbody.find('> TR:first-child').trigger('click');
+		
+		fixTableHeader();
+		
+		$.hiddenElems.animate({ opacity : 1 });
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
