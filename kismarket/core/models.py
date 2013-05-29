@@ -37,8 +37,14 @@ class Branch_Tech_To_Branch(models.Model):
 class Organization(Default):
     name_full = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название полное')
     name_lat = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'название лат.')
-    city = models.ForeignKey(City, blank=True, null=True, verbose_name=u'город')
     company_size = models.CharField(max_length=10, blank=True, null=True, db_index=True, verbose_name=u'размер компании')
+    city = models.ForeignKey(City, blank=True, null=True, verbose_name=u'город')
+    address = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'адрес')
+    org_type = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'тип организации')
+    details = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'реквизиты')
+    url = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'URL')
+    bugzilla_url = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'bugzilla URL')
+    link_at_disc_i = models.CharField(max_length=1500, blank=True, null=True, verbose_name=u'ссылка на "I"')
     class Meta:
         abstract = True
         unique_together = ('name',)
@@ -50,7 +56,6 @@ class Organization(Default):
 class Customer(Organization):
     branch = models.ManyToManyField(Branch, blank=True, null=True, through='Customer_To_Branch', verbose_name=u'отрасли')
     branch_description = models.CharField(max_length=500, blank=True, null=True, db_index=True, verbose_name=u'описание деятельности')
-    url = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'URL')
     relationship = models.ManyToManyField('self', blank=True, null=True, through='Customer_To_Customer', symmetrical=False, verbose_name=u'отношения')
     class Meta:
         unique_together = ('name',)
@@ -71,7 +76,7 @@ class Customer_To_Customer(models.Model):
     ]
     who = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_to_customer_who', verbose_name=u'кто')
     whom = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_to_customer_whom', verbose_name=u'с кем')
-    what = models.IntegerField(max_length=1, blank=True, null=True, db_index=True, choices=WHAT_CHOICES, verbose_name=u'тип')
+    what = models.CharField(max_length=1, blank=True, null=True, db_index=True, choices=WHAT_CHOICES, verbose_name=u'тип')
     when = models.DateTimeField(auto_now_add=True, blank=True, db_index=True, verbose_name=u'когда появилась запись')
     class Meta:
         unique_together = ('who', 'whom')
@@ -132,7 +137,7 @@ class Developer_Customer_Relation_Status(models.Model):
     ]
     developer = models.ForeignKey(Developer, verbose_name=u'исполнитель')
     customer = models.ForeignKey(Customer, verbose_name=u'заказчик')
-    status = models.IntegerField(max_length=1, blank=True, null=True, db_index=True, choices=STATUS_CHOICES, verbose_name=u'статус')
+    status = models.CharField(max_length=1, blank=True, null=True, db_index=True, choices=STATUS_CHOICES, verbose_name=u'статус')
     when = models.DateTimeField(auto_now_add=True, blank=True, db_index=True, verbose_name=u'когда появилась запись')
     next_contact_event_date = models.DateTimeField(blank=True, null=True, db_index=True, verbose_name=u'дата следующего контакта')
     class Meta:
@@ -240,6 +245,7 @@ class Kis_Sell(Default):
         ('rejected', 'Отклонен'),
         ('sold', 'Продано'),
     ]
+    bugzilla_url = models.CharField(max_length=500, blank=True, null=True, verbose_name=u'bugzilla URL')
     status = models.CharField(max_length=500, blank=True, null=True, db_index=True, choices=STATUS_CHOICES, verbose_name=u'статус')
     when = models.DateField(auto_now_add=True, db_index=True, verbose_name=u'когда')
     customer = models.ForeignKey(Customer, verbose_name=u'заказчик')

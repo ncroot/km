@@ -27,6 +27,7 @@ class Kis_Type_Admin(admin.ModelAdmin):
 
 class Customer_To_Customer_Inline(admin.TabularInline):
     model = Customer.relationship.through
+    fk_name = 'who'
     extra = 0
 class Custumer_To_Branch_Inline(admin.TabularInline):
     model = Customer.branch.through
