@@ -87,6 +87,8 @@ $(function() {
 	$.hiddenElems = $('.leftpanel > .fakeheader, .leftpanel > .tablewrapper, .rightpanel > H2, .rightpanel > .listholder').css({ opacity : 0 });
 	
 	$.getCompanyList(drawList);
+	
+	myTitle('#companylist');
 });
 
 $.companyList = null;
@@ -118,13 +120,15 @@ function drawList() {
 			switch(c.city) {
 				case 1:
 					c_city = 'Москва';
-					break;
+				break;
+				
 				case null:
 					c_city = '—';
-					break;
+				break;
+				
 				default:
 					c_city = c.city;
-					break;
+				break;
 			}
 			
 			tbody.append('<tr><td title="'+c.branch_description+'">'+c.name+'</td><td>'+c_city+'</td><td>'+c.company_size+'</td><td>'+c_url+'</td></tr>');
@@ -140,6 +144,36 @@ function drawList() {
 	}
 }
 
+function myTitle(el) {
+	$.label = $('<div class="myLabel" />').appendTo('body');
+	
+	$(el).hoverIntent({
+		over: showTitle,
+		out : hideTitle,
+		selector: 'TD'
+	});
+	
+	$(window).mousemove(function(e) {
+		$.label.css({
+			left : e.clientX + 12,
+			top  : e.clientY + 14
+		});
+	});
+}
+
+function showTitle() {
+	var el = $(this);
+	if (el.prop('title')) {
+		el.attr( 'data-title', el.attr('title') ).attr('title', '');
+		$.label.text( el.attr( 'data-title') ).fadeIn('fast');
+	}
+}
+
+function hideTitle() {
+	var el = $(this);
+	el.attr( 'title', el.attr('data-title') ).attr('data-title', '');
+	$.label.fadeOut('fast');
+}
 
 
 
