@@ -4,84 +4,82 @@ HTML, BODY {
 	margin: 0;
 }
 BODY {
-	font-size: 12px;
-	line-height: 1.2;
+	font-size: 13px;
+	line-height: 1.23;
 	position: relative;
 }
 
 BODY > .header {
+	position: relative;
 	height: 40px;
-	padding: 0 20px;
-	background-color: #333;
-	background-image: linear-gradient(to bottom, transparent 33%, rgba(0, 0, 0, 0.5) 100%);
+	padding: 0 10px;
+	background-color: #666;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
 }
-BODY > .header H1 {
+BODY > .header .logo {
 	font-size: 20px;
 	font-weight: normal;
 	line-height: 40px;
 	color: #fff;
 	margin: 0;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
 }
 
-button::-moz-focus-inner {
-	border: 0 none;
-}
 :focus {
 	outline: 0 none !important;
 }
-
-.table > TBODY > TR.active TH,
-.table > TBODY > TR.active TD {
-	background-color: #f0fff6;
+.btn:focus {
+	background-position: 0 0;
 }
-.table-hover > TBODY > TR:hover > TD,
-.table-hover > TBODY > TR:hover > TH {
-	background-color: #f0f6ff;
+.btn:focus:hover {
+	background-position: 0 -15px;
 }
-.table-hover > TBODY > TR.active:hover > TD,
-.table-hover > TBODY > TR.active:hover > TH {
-	background-color: #f0fff6;
+.btn-mini {
+	font-size: 11px;
+	line-height: 19px;
+	padding-top: 1px;
 }
-.table-condensed TH,
-.table-condensed TD {
-	padding: 4px 6px;
-}
-.table-border {
-	border: 1px solid #ddd;
-	border-collapse: separate;
-	border-left: 0;
-}
-.table-border TH,
-.table-border TD {
-	border-left: 1px solid #ddd;
+.dropup .caret {
+	margin-top: 7px;
 }
 
-.th-wrap {
+::-moz-selection {
+	background-color: #333;
+	color: #fff;
+}
+::selection {
+	background-color: #333;
+	color: #fff;
+}
+
+HR {
+	display: block;
+	font-size: 1px;
+	line-height: 1;
 	height: 1px;
-	overflow: hidden;
-}
-.th-text {
-	display: inline-block;
-	font-size: 12px;
-	line-height: 1.2;
+	padding: 0;
+	margin: 12px 0;
+	background: #ddd;
+	border: 0 none;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.9);
 }
 
 .form-horizontal .control-label {
 	width: 100px;
 }
 .form-horizontal .control-group {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 .form-horizontal .controls {
-    margin-left: 110px;
+	margin-left: 110px;
 }
 
 BODY > .body {
 	position: absolute;
-	left: 10px;
-	top: 50px;
-	right: 12px;
-	bottom: 10px;
+	left: 2px;
+	top: 42px;
+	right: 2px;
+	bottom: 2px;
 }
 .body > .bar {
 	position: absolute;
@@ -90,38 +88,53 @@ BODY > .body {
 	width: 18%;
 	height: 100%;
 }
-.body > .main {
+.main {
 	position: absolute;
 	left: 18%;
 	top: 0;
 	right: 0;
 	height: 100%;
 }
+.header > .main {
+	right: 2px;
+	margin-left: 2px;
+}
 .main > .leftpanel,
 .main > .rightpanel {
 	position: absolute;
 	top: 0;
 	height: 100%;
+}
+.header > .main .leftpanel {
+	padding: 0 1px;
+}
+.body > .main > .leftpanel,
+.body > .main > .rightpanel {
 	background-color: #f3f4f6;
-	border-radius: 4px;
+	border-radius: 3px;
+	padding: 0 10px;
+	overflow: hidden;
 }
 .main > .leftpanel {
 	left: 0;
-	width: 50%;
+	right: 42%;
 }
 .main > .rightpanel {
-	left: 50%;
-	width: 50%;
+	left: 58%;
+	right: 0;
 	margin-left: 2px;
 }
 
 .filter {
-	padding: 10px;
+	position: relative;
+	top: 7px;
+	margin-left: 10px;
 }
 .filter > INPUT[type='text'] {
 	margin-right: 5px;
 }
-INPUT[type='text'].bsheight {
+INPUT[type='text'].bsheight,
+.twitter-typeahead > INPUT[type='text'] {
 	padding: 3px 6px 1px;
 	margin-bottom: 0;
 	font-size: 11.9px;
@@ -140,57 +153,32 @@ LABEL, TEXTAREA {
 	font-size: 12px;
 	line-height: 1.4;
 }
-.leftpanel > .fakeheader {
-	position: relative;
-	padding: 0 10px;
-	z-index: 1;
+
+H1, H2 {
+	font-family: 'dincondensed';
+	font-weight: normal;
+	text-shadow: 1px 1px 0 rgba(255,255,255,0.9);
 }
-.fakeheader .table {
-	width: auto;
-	background-color: #fff;
-	border-radius: 4px 4px 0 0;
+H1 {
+	padding-bottom: 8px;
+	margin: 8px 0;
+	font-size: 26px;
+	line-height: 26px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.9);
+}
+H2 {
+	margin: 12px 0;
+	font-size: 22px;
+	line-height: 22px;
+	color: #444;
+}
+.body > .main > .leftpanel H2 {
+	margin-top: 0;
 }
 
-.fakeheader .table-condensed TH {
-	padding: 9px 6px 7px;
-}
-.fakeheader TH:first-child {
-	border-radius: 4px 0 0 0;
-}
-.leftpanel > .tablewrapper,
-.rightpanel > .listholder {
-	position: absolute;
-	left: 10px;
-	top: 77px;
-	right: 10px;
-	bottom: 10px;
-	overflow: auto;
-}
-.leftpanel .table {
-	margin: 0;
-}
-.leftpanel .table TH,
-.leftpanel .table TD {
-	line-height: 1.25;
-}
-.tablewrapper > .table {
-	position: relative;
-	top: -2px;
-}
-.tablewrapper > .table > THEAD TH {
-	font-size: 0;
-	line-height: 0;
-	padding: 0 6px;
-}
-
-.rightpanel > H2 {
-	margin: 0 10px 1px 20px;
-	font-size: 20px;
-	line-height: 29px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
 .rightpanel > FORM {
 	margin: 0 10px;
 	padding: 28px 0 12px;
@@ -202,42 +190,448 @@ LABEL, TEXTAREA {
 	height: 72px;
 	resize: none;
 }
-.rightpanel > .listholder {
+.listholder {
 	border: 1px solid #ddd;
-	border-radius: 4px;
+	border-radius: 3px;
 	margin: 0;
+	position: absolute;
+	left: 10px;
+	top: 42px;
+	right: 10px;
+	bottom: 10px;
+	overflow: auto;
 }
 .listholder LI {
 	border-top: 1px solid #ddd;
 	padding: 10px 10px 7px;
+	margin: -1px 0 0 0;
+	line-height: 1.23;
+	display: block;
 }
 .listholder LI:first-child {
-	border: 0 none;
+	
 }
-.listholder LI:nth-child(2n+1) {
-	background-color: #f9fafb;
-}
-.listholder DL {
-	margin: 0;
-}
-.listholder DD {
-	line-height: 1.3;
-	margin-bottom: 3px;
+.listholder LI:nth-child(odd) {
+	/*background-color: #f9fafb;*/
 }
 
+.leftrightlist,
+.leftrightlist DT,
+.leftrightlist DD {
+	margin: 0;
+	padding: 0;
+	line-height: 1.23;
+}
+.leftrightlist DT {
+	float: left;
+	font-size: 11px;
+	width: 82px;
+	text-align: right;
+	color: #999;
+}
+.leftrightlist DD {
+	overflow: hidden;
+	margin-left: 94px;
+	font-size: 12px;
+}
+.leftrightlist DD:after {
+	content: '';
+	display: block;
+	height: 4px;
+	clear: left;
+}
+
+
 .myLabel {
+	font-size: 11px;
+	line-height: 13px;
 	background: gold;
 	position: absolute;
 	display: none;
-	padding: 3px 8px 4px;
+	padding: 3px 5px 2px;
 	border-radius: 2px;
 	box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 	text-shadow: 0 1px 0 rgba(255,255,255,0.9);
 }
 
+xbody {
+	xbackground-color: #666;
+	xbackground-image: linear-gradient(to bottom, gold 33.3%, blue 33.3%, blue 66.6%, red 66.6%);
+}
 
+#cList {
+	
+}
 
+#cList,
+.tt-hint {
+	text-transform: uppercase;
+	width: 100%;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	text-indent: 5px;
+	position: relative;
+	margin: 7px 0 0 -1px;
+	border-radius: 2px;
+}
 
+.twitter-typeahead {
+	vertical-align: middle;
+	width: 100%;
+}
+/*
+.typeahead,
+.tt-query,
+.tt-hint {
+	width: 396px;
+	height: 30px;
+	padding: 8px 12px;
+	font-size: 18px;
+	line-height: 30px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 8px;
+	   -moz-border-radius: 8px;
+		    border-radius: 8px;
+	outline: none;
+}
+.typeahead {
+	background-color: #fff;
+}
+.typeahead:focus {
+	border: 2px solid #0097cf;
+}
+*/
+.tt-query {
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	   -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+		    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+}
+.tt-hint {
+	color: #999 !important;
+}
+.tt-dropdown-menu {
+	max-height: 265px;
+	overflow: auto;
+	width: 100%;
+	margin: 9px 0 0 -1px;
+	padding: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+		    border-radius: 3px;
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+	   -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+		    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+[class^='tt-dataset-'] {
+	
+}
+.tt-suggestion {
+	padding: 8px 12px;
+	font-size: 14px;
+}
+.tt-suggestion + .tt-suggestion {
+	border-top: 1px solid #ddd;
+}
+.tt-suggestion.tt-is-under-cursor {
+	color: #fff;
+	background-color: #0081c2;
+}
+.tt-suggestion.tt-is-under-cursor:first-child {
+	border-radius: 3px 3px 0 0;
+}
+.tt-suggestion.tt-is-under-cursor:last-child {
+	border-radius: 0 0 3px 3px;
+}
+.tt-suggestion P {
+	margin: 0;
+}
+.tt-suggestion .c-size {
+	float: right;
+	font-size: 11px;
+	line-height: 1.6;
+	color: #666;
+}
+.tt-suggestion .c-name {
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+.tt-suggestion .c-name SPAN {
+	color: red;
+}
+.tt-suggestion .c-description {
+	font-size: 11px;
+	color: #999;
+}
+.tt-is-under-cursor .c-size,
+.tt-is-under-cursor .c-description {
+	color: #fff;
+}
+
+.cInfo {
+	margin: 0;
+	padding: 0;
+}
+.cInfo DT, .cInfo DD {
+	margin: 0;
+	line-height: 18px;
+}
+.cInfo DT {
+	float: left;
+	font-size: 12px;
+	width: 90px;
+	text-align: right;
+	color: #999;
+}
+.cInfo DD {
+	overflow: hidden;
+	margin-left: 100px;
+	font-size: 14px;
+}
+.cInfo DD:after {
+	content: '';
+	display: block;
+	height: 4px;
+	clear: left;
+}
+
+#cInfo {
+	position: relative;
+}
+#cInfo > .btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#cInfo > HR {
+	margin-top: 6px;
+}
+#cInfo > DL.hidden {
+	visibility: visible;
+}
+
+#cPersons {
+	position: relative;
+}
+#cPersons > .btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#cPersons > HR {
+	margin-top: 0;
+}
+#cPersons DL,
+#cPersons > DL > DD {
+	margin: 0;
+}
+#cPersons > DL > DT {
+	padding-bottom: 4px;
+	text-shadow: 1px 1px 0 rgba(255,255,255,0.9);
+}
+#cPersons > DL > DD:last-child,
+#cPersons > DL > DD > DL {
+	padding-bottom: 6px;
+}
+#cPersons .cInfo DT,
+#cPersons .cInfo DD {
+	line-height: 14px;
+}
+#cPersons .cInfo DT {
+	font-size: 11px;
+	width: 80px;
+}
+#cPersons .cInfo DD {
+	font-size: 12px;
+	margin-left: 90px;
+}
+#cPersons .pInfo {
+	margin-left: 10px;
+}
+
+#cPP {
+	position: relative;
+}
+#cPP .listholder {
+	top: 34px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+#cPP LI > DL {
+	margin: 0;
+}
+#cPP LI > DL > DT {
+	margin: -10px -10px 8px;
+	padding: 4px 4px 3px 10px;
+	border-bottom: 1px solid #ddd;
+	background-color: #fff;
+	text-align: justify;
+	font-size: 1px;
+	line-height: 1px;
+	-webkit-transition: background-color 0.3s ease;
+	   -moz-transition: background-color 0.3s ease;
+	    -ms-transition: background-color 0.3s ease;
+	     -o-transition: background-color 0.3s ease;
+	        transition: background-color 0.3s ease;
+}
+#cPP LI > DL > DT:after {
+	content: '';
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+}
+#cPP LI > DL > DT > * {
+	vertical-align: middle;
+	text-align: left;
+}
+#cPP LI > DL > DT SPAN {
+	display: inline-block;
+	width: 90%;
+	font-size: 13px;
+	line-height: 1.1;
+}
+#cPP LI > DL > DT .btn {
+	margin: 0;
+}
+#cPP LI > DL > DD {
+	margin: 0;
+}
+#cPP LI > DL > DD > P {
+	margin-left: 90px;
+}
+#cPP .leftrightlist > DT {
+	width: 79px;
+}
+#cPP .leftrightlist > DD {
+	margin-left: 89px;
+}
+
+#aside H2 {
+	padding-left: 8px;
+}
+#aside UL {
+	margin: 0;
+	position: absolute;
+	left: -2px;
+	top: 42px;
+	right: 2px;
+	bottom: 0;
+	overflow: auto;
+	font-size: 10px;
+	text-transform: uppercase;
+	border-top: 1px solid #ddd;
+}
+#aside LI {
+	border-top: 1px solid #ddd;
+	padding: 4px 0 3px 10px;
+	line-height: 12px;
+	cursor: pointer;
+	position: relative;
+	-webkit-transition: background-color 0.3s ease;
+	   -moz-transition: background-color 0.3s ease;
+	    -ms-transition: background-color 0.3s ease;
+	     -o-transition: background-color 0.3s ease;
+	        transition: background-color 0.3s ease;
+}
+#aside LI:first-child {
+	border-top: 0 none;
+}
+#aside LI:nth-child(even) {
+	background-color: #f9fafb;
+}
+#aside LI.active,
+#aside LI.active:hover {
+	background-color: #0081c2;
+	color: #fff;
+}
+/*
+#aside LI.active {
+	z-index: 1;
+}
+#aside LI.active:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: -1px;
+	bottom: -1px;
+	width: 5px;
+	background-color: #0081c2;
+}
+*/
+#aside LI:hover {
+	background-color: #def;
+}
+
+#cevents LI {
+	
+}
+#cevents DT, #cevents DD {
+	line-height: 16px;
+}
+#cevents DL > DT:first-child {
+	display: none;
+}
+#cevents DL > DT:first-child + DD {
+	margin: -10px -10px 8px;
+	font-size: 11px;
+	line-height: 13px;
+	font-weight: bold;
+	color: #111;
+}
+#cevents DL > DT:first-child + DD > VAR {
+	display: inline-block;
+	padding: 4px 10px 3px;
+	border: 1px solid #ddd;
+	border-width: 0 1px 1px 0;
+	border-radius: 0 0 3px 0;
+	font-style: normal;
+	background-color: #fff;
+}
+#cevents .ce_unlinked DL > DT:first-child + DD > VAR {
+	background-color: #ddd;
+}
+#cevents .selected DL > DT:first-child + DD > VAR,
+#cPP LI.selected > DL > DT {
+	background-color: #def;
+}
+#cevents DL > DT:first-child + DD:after {
+	height: 0;
+}
+#cevents + .btn {
+	float: right;
+	margin-top: -34px;
+	display: none;
+}
+
+@-webkit-keyframes blink {
+	from { background-color: #0081c2; color: #fff; }
+	  to { background-color: #fff; color: #333; }
+}
+@-moz-keyframes blink {
+	from { background-color: #0081c2; color: #fff; }
+	  to { background-color: #fff; color: #333; }
+}
+@-ms-keyframes blink {
+	from { background-color: #0081c2; color: #fff; }
+	  to { background-color: #fff; color: #333; }
+}
+@-o-keyframes blink {
+	from { background-color: #0081c2; color: #fff; }
+	  to { background-color: #fff; color: #333; }
+}
+@keyframes blink {
+	from { background-color: #0081c2; color: #fff; }
+	  to { background-color: #fff; color: #333; }
+}
+#aside LI.blink {
+	-webkit-animation: blink 0.3s cubic-bezier(1.0,0,0,1.0) infinite;
+	   -moz-animation: blink 0.3s cubic-bezier(1.0,0,0,1.0) infinite;
+	    -ms-animation: blink 0.3s cubic-bezier(1.0,0,0,1.0) infinite;
+	     -o-animation: blink 0.3s cubic-bezier(1.0,0,0,1.0) infinite;
+			animation: blink 0.3s cubic-bezier(1.0,0,0,1.0) infinite;
+}
 
 
 

@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'dincondensed';
+	src: url('dincondensed.eot');
+	src: url('dincondensed.eot?#iefix') format('embedded-opentype'),
+		 url('dincondensed.woff') format('woff'),
+		 url('dincondensed.ttf') format('truetype'),
+		 url('dincondensed.svg#dincondensedcregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

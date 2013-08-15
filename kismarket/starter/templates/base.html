@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MRM</title>
+<title>Custis-M</title>
+<link rel="stylesheet" href="{{ STATIC_URL }}font/dincondensed.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/custom.css">
@@ -17,23 +18,25 @@
 
 <div class="header">
 	<div class="logo">
-		<h1 class="text-logo">Да пребудет с вами сила!</h1>
+		<p class="text-logo">Custis-M</p>
 	</div>
+{% block header %}
+{% endblock %}
 </div>
 
 <div class="body">
-	<div class="bar">
-	</div>
 {% block content %}
 {% endblock %}
 </div>
 
-
+<script type="text/javascript" src="{{ STATIC_URL }}js/hogan.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.migrate.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/lodash.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.hoverIntent.min.js"></script>
+<!--script type="text/javascript" src="{{ STATIC_URL }}js/lodash.js"></script-->
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.router.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/typeahead.js"></script>
+<!--script type="text/javascript" src="{{ STATIC_URL }}js/typeahead.highlight.js"></script-->
 <script type="text/javascript" src="{{ STATIC_URL }}js/script.js"></script>
 
 </body>
