@@ -491,6 +491,7 @@ xbody {
 	width: 90%;
 	font-size: 13px;
 	line-height: 1.1;
+	padding: 4px 0;
 }
 #cPP LI > DL > DT .btn {
 	margin: 0;

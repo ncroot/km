@@ -209,7 +209,9 @@ function drawProPerEv(error) {
 		}
 		
 		for (k in $.propersList.projects) {
-			var DL_1 = $('<DL />').appendTo( $('<LI />').appendTo(pro) ).append('<DT><SPAN>' + $.propersList.projects[k].name + '</SPAN> <A href="#" class="btn btn-mini" rel="ce_' + k + '">КC</A></DT>'),
+			var isNoEv = ($.propersList.projects[k].events == null || $.propersList.projects[k].events == ""),
+				cev_button = isNoEv ? '' : ' <A href="#" class="btn btn-mini" rel="ce_' + k + '">КC</A>',
+				DL_1 = $('<DL />').appendTo( $('<LI />').appendTo(pro) ).append('<DT><SPAN>' + $.propersList.projects[k].name + '</SPAN>' + cev_button + '</DT>'),
 				DL_2 = $('<DL class="leftrightlist" />').appendTo( DL_1 );
 			
 			for (n in $.propersList.projects[k]) {
@@ -339,6 +341,8 @@ function panelOperation(o) {
 	}
 	
 	$('#cList').typeahead('setQuery', '').blur();
+	
+	$('#cevents').next().hide();
 	
 	//console.log(new Date().getTime() - time1);
 }
