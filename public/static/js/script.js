@@ -102,6 +102,10 @@ function setHash(id) {
 	if (id) window.location.hash = 'id:' + id;
 }
 
+var cookieproperty = {
+	"expires" : 60 * 60 * 24 * 365
+};
+	
 function drawList() {
 	if ($.companyList) {
 		var aside = $('#aside > UL'),
@@ -155,11 +159,15 @@ function drawList() {
 		});
 		
 		$.router(/^id:(\d+)$/, function(m, id) {
-			//console.log( id );
+			//console.log( m+' ... '+id );
 			panelOperation( getCompany(id) );
+			setCookie('companyID', id, cookieproperty);
 		});
 		
-		if (!window.location.hash) setHash( 63 );
+		if (!window.location.hash) {
+			defaultID = getCookie('companyID') || cList[0].id;
+			setHash( defaultID );
+		}
 	}
 }
 
@@ -487,7 +495,40 @@ function closeForm() {
 	}, 'fast');
 }
 
+function getCookie(name) {
+	var matches = document.cookie.match(new RegExp( "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)") );
+	return matches ? decodeURIComponent(matches[1]) : undefined;
+}
 
+function setCookie(name, value, props) {
+	props = props || {};
+
+	var exp = props.expires;
+
+	if (typeof exp == "number" && exp) {
+		var d = new Date();
+		d.setTime(d.getTime() + exp * 1000);
+		exp = props.expires = d;
+	}
+
+	if (exp && exp.toUTCString) {
+		props.expires = exp.toUTCString();
+	}
+
+	value = encodeURIComponent(value);
+
+	var updatedCookie = name + "=" + value;
+
+	for (var propName in props) {
+		updatedCookie += "; " + propName;
+		var propValue = props[propName];
+		if (propValue !== true) {
+			updatedCookie += "=" + propValue;
+		}
+	}
+	
+	document.cookie = updatedCookie;
+}
 
 
 
